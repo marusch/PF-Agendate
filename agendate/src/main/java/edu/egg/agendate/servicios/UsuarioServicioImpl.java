@@ -12,9 +12,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+@Service
 public class UsuarioServicioImpl implements UsuarioServicio {
 
     @Autowired
@@ -26,8 +28,8 @@ public class UsuarioServicioImpl implements UsuarioServicio {
         if (usuario != null) {
             List<GrantedAuthority> permisos = new ArrayList<>();
 
-            GrantedAuthority p1 = new SimpleGrantedAuthority("ROL_" + usuario.getRol());
-            permisos.add(p1);
+            GrantedAuthority auth = new SimpleGrantedAuthority("ROLE_" + usuario.getRol());
+            permisos.add(auth);
 
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
             HttpSession session = attr.getRequest().getSession(true);
