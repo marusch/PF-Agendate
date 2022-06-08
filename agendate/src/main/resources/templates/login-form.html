@@ -21,16 +21,47 @@
                     <div class="card-body">
                         <form th:action="@{/logincheck}" method="post" autocomplete="off" class="needs-validation mb-4"
                               novalidate>
+                   <div class="form-floating mb-3">     
+                            <input type="text" th:field="*{nombre}" id="nombre" class="form-control" placeholder="John"
+                               required>
+                        <label for="nombre">Name</label>
+                        <div class="invalid-feedback">Ingrese nombre correcto</div>
+                    </div>
 
-                            <div class="form-group mb-3">
-                                <input type="email" name="email" placeholder="Email" class="form-control" required/>
-                                <div class="invalid-feedback text-start">Email is required</div>
-                            </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" th:field="*{apellido}" id="apellido" class="form-control" placeholder="Doe"
+                               required>
+                        <label for="apellido">Apellido</label>
+                        <div class="invalid-feedback">  Ingrese el apellido correcto</div>
+                    </div>
 
-                            <div class="form-group mb-3">
-                                <input type="password" name="pwd" placeholder="Password" class="form-control" required/>
-                                <div class="invalid-feedback text-start">Password is required</div>
-                            </div>
+                    <div class="form-floating mb-3">
+                        <input type="usuario" th:field="*{usuario}" id="usuario" class="form-control" required>
+                        <label for="usuario">usuario</label>
+                        <div class="invalid-feedback">Ingrese un usuario valido</div>
+                    </div>
+                    
+                
+                    <div class="form-floating mb-3">
+                        <input type="correo" th:field="*{correo}" id="correo" class="form-control" required>
+                        <label for="correo">Correo Electronico</label>
+                        <div class="invalid-feedback">Ingrese un correo valido</div>
+                    </div>
+
+                      <div class="form-floating mb-3">
+                        <input type="contraseña" th:field="*{contraseña}" id ="contraseña" class="form-control" required>
+                        <label for="contraseña">Contraseña</label>
+                        <div class="invalid-feedback">Ingrese una contraseña valida</div>
+                    </div>
+                            <div class="form-floating mb-3">
+                                <select elegir="select">
+                                    <option prestacion="corte"> Opcion 1<option>
+                                         <option prestacion="manicura y pedicura"> Opcion 2<option>
+                                              <option prestacion="masajes"> Opcion 3<option>
+                                </select>
+                    </div>
+
+                            
 
                             <div class="form-group d-grid gap-2">
                                 <button class="btn btn-success" type="submit">Send</button>
