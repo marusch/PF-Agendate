@@ -10,4 +10,5 @@ public interface ProfesionalRepositorio extends JpaRepository<Profesional, Long>
     
     public Profesional findByEmail(String email);
     
+    boolean existsByEmail(String email);
 }

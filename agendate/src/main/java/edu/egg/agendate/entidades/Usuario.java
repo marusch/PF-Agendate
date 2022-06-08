@@ -13,6 +13,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -24,7 +25,7 @@ public class Usuario {
     private Long id;
 
     @Column
-    @NotBlank(message = "Debe ingresar un email")
+    @NotEmpty(message = "Debe ingresar un email")
     @Email
     private String email;
 
