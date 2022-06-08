@@ -1,0 +1,4 @@
+<footer th:fragment="footer" class="bg-dark fixed-bottom text-center py-3">
+    <span class="text-white"
+          th:text="${session.id != null} ? |${session.email} - ${session.role}| : 'AGENDATE'"></span>
+</footer>
