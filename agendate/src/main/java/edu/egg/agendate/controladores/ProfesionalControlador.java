@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.egg.agendate.controladores;
 
 import edu.egg.agendate.entidades.Profesional;
@@ -20,10 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.servlet.view.RedirectView;
 
-/**
- *
- * @author facun
- */
 
 @Controller
 @RequestMapping("")
@@ -31,6 +22,7 @@ public class ProfesionalControlador {
     
     @Autowired
     private ProfesionalServicio profServicio;
+    
     
    //tabla para mostrar todos
     @GetMapping

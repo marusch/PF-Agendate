@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+<header th:replace="fragments/header :: header"></header>
+
+<main>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <div th:if="${success}" th:text="${success}" class="alert alert-success" role="alert"></div>
+
+                <div th:if="${persons.isEmpty()}" class="alert alert-info alert-dismissible fade show" role="alert">
+                    You must enter people.
+                    <a th:href="@{/persons/form}" class="alert-link">Create person.</a>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <div th:unless="${persons.isEmpty()}" class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr class="table-dark">
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Date of birth</th>
+                            <th sec:authorize="hasRole('ADMIN')">Update</th>
+                            <th sec:authorize="hasRole('ADMIN')">Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="person : ${persons}">
+                            <td th:text="${person.name}"></td>
+                            <td th:text="${person.surname}"></td>
+                            <td th:text="${#temporals.format(person.dateOfBirth, 'dd-MM-yyyy')}"></td>
+                            <td sec:authorize="hasRole('ADMIN')">
+                                <a class="btn btn-warning" th:href="@{/persons/form/__${person.id}__}">Update</a>
+                            </td>
+                            <td sec:authorize="hasRole('ADMIN')">
+                                <form th:action="@{/persons/delete/__${person.id}__}" method="POST">
+                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>
