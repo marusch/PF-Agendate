@@ -5,6 +5,7 @@ import edu.egg.agendate.repositorios.ProfesionalRepositorio;
 import edu.egg.agendate.roles.Rol;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ public class ProfesionalServicio {
     
     @Autowired
     private ProfesionalRepositorio profesionalRepo;
+    private final BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
     
     
     @Transactional
@@ -26,8 +28,9 @@ public class ProfesionalServicio {
         
         prof.setId(profDto.getId());
         prof.setEmail(profDto.getEmail());
-        prof.setContraseña(profDto.getContraseña());
-        prof.setConfirmarContraseña(profDto.getConfirmarContraseña());
+        //prof.setContraseña(profDto.getContraseña());
+        prof.setContraseña(enc.encode(profDto.getContraseña()));
+        //prof.setConfirmarContraseña(profDto.getConfirmarContraseña());
         prof.setRol(Rol.USER);
         prof.setNombre(profDto.getNombre());
         prof.setApellido(profDto.getApellido());

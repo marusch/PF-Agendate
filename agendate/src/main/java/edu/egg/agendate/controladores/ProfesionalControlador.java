@@ -17,7 +17,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 
 @Controller
-@RequestMapping("")
+@RequestMapping("/profesional")
 public class ProfesionalControlador {
     
     @Autowired
@@ -37,9 +37,9 @@ public class ProfesionalControlador {
     }
 
     // /form para crear Profesional
-    @GetMapping()
+    @GetMapping("/formulario_profesional")
     public ModelAndView obtenerForm(HttpServletRequest request) {
-        ModelAndView mav = new ModelAndView("");
+        ModelAndView mav = new ModelAndView("registro-prof-form");
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
 
         if (inputFlashMap != null) {
@@ -54,18 +54,18 @@ public class ProfesionalControlador {
     }
 
     // /form/id para modificar Profesional
-    @GetMapping()
+    @GetMapping("/formulario_profesional/{id}")
     public ModelAndView obtenerForm(@PathVariable Long id) {
-        ModelAndView mav = new ModelAndView("");
+        ModelAndView mav = new ModelAndView("registro-prof-form");
         mav.addObject("profesional", profServicio.mostrarPorId(id));
         mav.addObject("action", "modificar");
         return mav;
     }
 
     // /crear
-    @PostMapping("")
+    @PostMapping("/crear")
     public RedirectView crear(Profesional profDto, RedirectAttributes attributes) {
-        RedirectView redirect = new RedirectView("");
+        RedirectView redirect = new RedirectView("/profesional");
 
         try {
             profServicio.crear(profDto);
@@ -73,25 +73,25 @@ public class ProfesionalControlador {
         } catch (IllegalArgumentException e) {
             attributes.addFlashAttribute("profesional", profDto);
             attributes.addFlashAttribute("exception", e.getMessage());
-            redirect.setUrl("");
+            redirect.setUrl("/profesional");
         }
 
         return redirect;
     }
 
     // /modificar
-    @PostMapping("")
+    @PostMapping("/modificar")
     public RedirectView modificar(Profesional profDto, RedirectAttributes attributes) {
-        RedirectView redirect = new RedirectView("");
+        RedirectView redirect = new RedirectView("/profesional");
         profServicio.modificar(profDto);
         attributes.addFlashAttribute("success", "operación realizada con éxito");
         return redirect;
     }
 
     // /borrar/id
-    @PostMapping("")
+    @PostMapping("/borrar/{id}")
     public RedirectView borrar(@PathVariable Long id) {
-        RedirectView redirect = new RedirectView("");
+        RedirectView redirect = new RedirectView("/profesional");
         profServicio.borrarPorId(id);
         return redirect;
     }
