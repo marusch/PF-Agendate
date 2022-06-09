@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8"/>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="fragments/head :: head"></head>
 
@@ -12,41 +13,41 @@
             <div class="col-6">
                 <div th:if="${exception}" th:text="${exception}" class="alert alert-danger mb-3"></div>
 
-                <form th:action="@{/persons/__${action}__}" th:object="${person}" method="post" autocomplete="off"
+                <form th:action="@{/seccion-clientes/__${action}__}" th:object="${person}" method="post" autocomplete="off"
                       class="needs-validation" novalidate>
                     <input type="hidden" th:field="*{id}">
 
                     <div class="form-floating mb-3">
                         <input type="text" th:field="*{nombre}" id="nombre" class="form-control" placeholder="John"
                                required>
-                        <label for="nombre">Name</label>
-                        <div class="invalid-feedback">Ingrese nombre correcto</div>
+                        <label for="nombre">Nombre</label>
+                        <div class="invalid-feedback">Ingrese nombre válido</div>
                     </div>
 
                     <div class="form-floating mb-3">
                         <input type="text" th:field="*{apellido}" id="apellido" class="form-control" placeholder="Doe"
                                required>
                         <label for="apellido">Apellido</label>
-                        <div class="invalid-feedback">  Ingrese el apellido correcto</div>
+                        <div class="invalid-feedback">  Ingrese un apellido válido</div>
                     </div>
 
                     <div class="form-floating mb-3">
                         <input type="nroCelular" th:field="*{nroCelular}" id="nroCelular" class="form-control" required>
-                        <label for="nroCelular">Numero de Celular</label>
-                        <div class="invalid-feedback">Ingrese nro de celular valido</div>
+                        <label for="nroCelular">Número de celular</label>
+                        <div class="invalid-feedback">Ingrese un número de celular válido</div>
                     </div>
                     
                 
                     <div class="form-floating mb-3">
                         <input type="correo" th:field="*{correo}" id="correo" class="form-control" required>
-                        <label for="correo">Correo Electronico</label>
-                        <div class="invalid-feedback">Ingrese un correo valido</div>
+                        <label for="correo">Correo electrónico</label>
+                        <div class="invalid-feedback">Ingrese una dirección de correo válido</div>
                     </div>
 
                       <div class="form-floating mb-3">
                         <input type="contraseña" th:field="*{contraseña}" id ="contraseña" class="form-control" required>
                         <label for="contraseña">Contraseña</label>
-                        <div class="invalid-feedback">Ingrese una contraseña valida</div>
+                        <div class="invalid-feedback">Ingrese una contraseña válido</div>
                     </div>
 
                     <button th:text="${action == 'create' ? 'Create' : 'Update'}" type="submit"

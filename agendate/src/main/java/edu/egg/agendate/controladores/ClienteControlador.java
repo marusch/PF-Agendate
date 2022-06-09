@@ -24,7 +24,7 @@ public class ClienteControlador {
     @Autowired
     private ClienteServicio clienteServicio;
 
-    @GetMapping
+    @GetMapping("/mostrar-creacion-clientes")
     public ModelAndView mostrarClientes(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("tabla-de-clientes");
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
@@ -37,7 +37,7 @@ public class ClienteControlador {
 
     @GetMapping("/formulario-creacion-clientes")
     public ModelAndView obtenerFormulario(HttpServletRequest request) {
-        ModelAndView mav = new ModelAndView("clientes-form");
+        ModelAndView mav = new ModelAndView("registro-cliente-formulario");
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
 
         if (inputFlashMap != null) {
@@ -51,9 +51,9 @@ public class ClienteControlador {
         return mav;
     }
 
-    @GetMapping("/form/{id}")
+    @GetMapping("/formulario-creacion-clientes/{id}")
     public ModelAndView obtenerForm(@PathVariable Long id) {
-        ModelAndView mav = new ModelAndView("clientes-form");
+        ModelAndView mav = new ModelAndView("registro-cliente-formulario");
         mav.addObject("person", clienteServicio.obtenerPorId(id));
         mav.addObject("action", "actualizar");
         return mav;
@@ -61,7 +61,7 @@ public class ClienteControlador {
 
     @PostMapping("/crear")
     public RedirectView create(Cliente clienteDto, RedirectAttributes attributes) {
-        RedirectView redirect = new RedirectView("/clientes");
+        RedirectView redirect = new RedirectView("/seccion-clientes");
 
         try {
             clienteServicio.crear(clienteDto);
@@ -69,15 +69,15 @@ public class ClienteControlador {
         } catch (IllegalArgumentException e) {
             attributes.addFlashAttribute("cliente", clienteDto);
             attributes.addFlashAttribute("exception", e.getMessage());
-            redirect.setUrl("/clientes/form");
+            redirect.setUrl("/seccion-clientes");
         }
 
         return redirect;
     }
 
-    @PostMapping("/actualizar-clientes")
+    @PostMapping("/actualizar")
     public RedirectView actualizar(Cliente clienteDto, RedirectAttributes attributes) {
-        RedirectView redirect = new RedirectView("/clientes");
+        RedirectView redirect = new RedirectView("/seccion-clientes");
         clienteServicio.modificar(clienteDto);
         attributes.addFlashAttribute("success", "La operacion se ha realizado exitosamente");
         return redirect;
@@ -85,7 +85,7 @@ public class ClienteControlador {
 
     @PostMapping("/borrar/{id}")
     public RedirectView borrar(@PathVariable Long id) {
-        RedirectView redirect = new RedirectView("/clientes");
+        RedirectView redirect = new RedirectView("/seccion-clientes");
         clienteServicio.borrarPorId(id);
         return redirect;
     }
