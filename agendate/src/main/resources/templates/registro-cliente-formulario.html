@@ -13,7 +13,7 @@
             <div class="col-6">
                 <div th:if="${exception}" th:text="${exception}" class="alert alert-danger mb-3"></div>
 
-                <form th:action="@{/seccion-clientes/__${action}__}" th:object="${clienteDto}" method="post" autocomplete="off"
+                <form th:action="@{/seccion-clientes/__${action}__}" th:object="${cliente}" method="post" autocomplete="off"
                       class="needs-validation" novalidate>
                     <input type="hidden" th:field="*{id}">
 
@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="nroCelular" th:field="*{nroCelular}" id="nroCelular" class="form-control" required>
+                        <input type="text" th:field="*{nroCelular}" id="nroCelular" class="form-control" required>
                         <label for="nroCelular">Número de celular</label>
                         <div class="invalid-feedback">Ingrese un número de celular válido</div>
                     </div>
