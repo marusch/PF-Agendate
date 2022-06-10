@@ -1,4 +1,4 @@
-
+/*
 package edu.egg.agendate.repositorios;
 
 import edu.egg.agendate.entidades.Prestacion;
@@ -17,6 +17,11 @@ public interface PrestacionRepositorio extends JpaRepository<Prestacion, Long>{
         @Query("SELECT p FROM Prestacion p WHERE p.nombre LIKE ?1")
         Optional<Prestacion> searchByName(String name);
         
+
        // boolean existsByName(String nombre);
+
+        //boolean existsByName(String nombre);
+
     
 }
+*/
