@@ -24,9 +24,9 @@ public class PrestacionServicio {
     
     @Transactional
     public void crearPrestacion(Prestacion prestacionDto){
-     if (prestacionRepo.existsByName(prestacionDto.getNombre()))
+    /* if (prestacionRepo.existsByName(prestacionDto.getNombre()))
                 throw new IllegalArgumentException("El email ingresado ya se encuentra registrado");
-        
+      */  
         Prestacion prestacion = new Prestacion();
         
         prestacion.setId(prestacionDto.getId());

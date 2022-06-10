@@ -17,7 +17,7 @@
                                 <h3>Login</h3>
                             </div>
                             <div class="card-body">
-                                <form th:action="@{/profesional/__${action}__}" object="ProfDto" method="post" autocomplete="off" class="needs-validation mb-4"
+                                <form th:action="@{/profesional/__${action}__}" th:object="${ProfDto}" method="post" autocomplete="off" class="needs-validation mb-4"
                                       novalidate>
                                     <input type="hidden" th:field="*{id}">
                                     <div class="form-floating mb-3">     

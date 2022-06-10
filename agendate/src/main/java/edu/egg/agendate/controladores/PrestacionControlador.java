@@ -13,9 +13,9 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 
 @Controller
-@RequestMapping("")
+//@RequestMapping("")
 public class PrestacionControlador {
-    
+  /*  
   @Autowired
     private PrestacionServicio prestacionServicio;
   
@@ -30,6 +30,6 @@ public class PrestacionControlador {
         mav.addObject("prestaciones", prestacionServicio.mostrarTodos());
         return mav;
     }
-
+*/
     
 }

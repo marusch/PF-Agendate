@@ -13,7 +13,7 @@
             <div class="col-6">
                 <div th:if="${exception}" th:text="${exception}" class="alert alert-danger mb-3"></div>
 
-                <form th:action="@{/seccion-clientes/__${action}__}" th:object="${person}" method="post" autocomplete="off"
+                <form th:action="@{/seccion-clientes/__${action}__}" th:object="${clienteDto}" method="post" autocomplete="off"
                       class="needs-validation" novalidate>
                     <input type="hidden" th:field="*{id}">
 
