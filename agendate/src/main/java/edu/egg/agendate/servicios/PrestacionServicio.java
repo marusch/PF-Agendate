@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+
 package edu.egg.agendate.servicios;
 
 import edu.egg.agendate.entidades.Prestacion;
@@ -12,10 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author Rosi-PC
- */
 
 @Service
 public class PrestacionServicio {
@@ -24,9 +20,9 @@ public class PrestacionServicio {
     
     @Transactional
     public void crearPrestacion(Prestacion prestacionDto){
-    /* if (prestacionRepo.existsByName(prestacionDto.getNombre()))
+    if (prestacionRepo.existsByName(prestacionDto.getNombre()))
                 throw new IllegalArgumentException("El email ingresado ya se encuentra registrado");
-      */  
+        
         Prestacion prestacion = new Prestacion();
         
         prestacion.setId(prestacionDto.getId());
@@ -66,3 +62,4 @@ public class PrestacionServicio {
     }
 
 }
+ */
