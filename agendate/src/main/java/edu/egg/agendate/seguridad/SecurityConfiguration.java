@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.egg.agendate.seguridad;
 
 import edu.egg.agendate.servicios.UsuarioServicio;
@@ -16,14 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-<<<<<<< HEAD
-
-@Configuration
-@EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private UsuarioServicio us;
-=======
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -31,51 +18,46 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private UsuarioServicio us;
 
->>>>>>> 8e5fcb11ce01fe34be64b5a2a0a49c0aa827f767
-     @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 8e5fcb11ce01fe34be64b5a2a0a49c0aa827f767
-     @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(us);
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> 8e5fcb11ce01fe34be64b5a2a0a49c0aa827f767
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
-<<<<<<< HEAD
-=======
-   
-   
->>>>>>> 8e5fcb11ce01fe34be64b5a2a0a49c0aa827f767
-   @Override
+
+     String[] resources = new String[]{
+            "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**"
+            };
+    
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
-                "/registro**",
-                "/js/**",
-                "/css/**",
-                "/img/**").permitAll();
-<<<<<<< HEAD
+               // "/registro-prof-form**",
+                //"/js/**",
+                //"/css/**",
+                //"/img/**").permitAll()
+                resources).permitAll()
+                .antMatchers("/","/index").permitAll()
+                .and().formLogin()                                                            
+                        .loginPage("/login") 
+                        .loginProcessingUrl("/logincheck")
+                        .usernameParameter("email") 
+                        .passwordParameter("contraseña") 
+                        .defaultSuccessUrl("/index", true).permitAll();
+                //.antMatchers("/inicio/login").permitAll();
+                //.anyRequest().authenticated()
+                //.antMatchers("/profesional*","/").access("hasAuthority('ROLE_USER')");
+                //.antMatchers("/").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
     }
-}  
-
-=======
-               
-    }
-    
-    
-
 }
->>>>>>> 8e5fcb11ce01fe34be64b5a2a0a49c0aa827f767

@@ -14,12 +14,11 @@
 
                         <div class="card text-center shadow">
                             <div class="card-header">
-                                <h3>Login</h3>
+                                <h3>Registro</h3>
                             </div>
                             <div class="card-body">
-                                <form th:action="@{/profesional/__${action}__}" th:object="${profesional}" method="post" autocomplete="off" class="needs-validation mb-4"
-                                      novalidate>
-                                    <input type="hidden" th:field="*{id}">
+                                <form th:action="@{/profesional/__${action}__}" th:object="${profesional}" method="POST" autocomplete="off">
+                                    
                                     <div class="form-floating mb-3">     
                                         <input type="text" th:field="*{nombre}" id="nombre" class="form-control" placeholder="John"
                                                required>

@@ -1,6 +1,7 @@
 package edu.egg.agendate.entidades;
 
 import edu.egg.agendate.roles.Rol;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -14,6 +15,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -50,7 +52,7 @@ public class Usuario {
         this.confirmarContraseña = confirmarContraseña;
         this.rol = rol;
     }
-
+    
     public Long getId() {
         return id;
     }
