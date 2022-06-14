@@ -65,7 +65,7 @@ public class ProfesionalControlador {
     // /crear
     @PostMapping("/crear")
     public RedirectView crear(Profesional profDto, RedirectAttributes attributes) {
-        RedirectView redirect = new RedirectView("/profesional");
+        RedirectView redirect = new RedirectView("/login");
 
         try {
             profServicio.crear(profDto);

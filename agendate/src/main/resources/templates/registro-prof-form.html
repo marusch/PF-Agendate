@@ -20,15 +20,13 @@
                                 <form th:action="@{/profesional/__${action}__}" th:object="${profesional}" method="POST" autocomplete="off">
                                     
                                     <div class="form-floating mb-3">     
-                                        <input type="text" th:field="*{nombre}" id="nombre" class="form-control" placeholder="John"
-                                               required>
-                                        <label for="nombre">Name</label>
+                                        <input type="text" th:field="*{nombre}" id="nombre" class="form-control" required/>
+                                        <label for="nombre">Nombre</label>
                                         <div class="invalid-feedback"> </div>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" th:field="*{apellido}" id="apellido" class="form-control" placeholder="Doe"
-                                               required>
+                                        <input type="text" th:field="*{apellido}" id="apellido" class="form-control" required/>
                                         <label for="apellido">Apellido</label>
                                         <div class="invalid-feedback">  </div>
                                     </div>
