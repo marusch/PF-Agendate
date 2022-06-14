@@ -44,4 +44,9 @@ public class TurnoServicio {
     public Turno obtenerTurnoPorId(Long id) {
         return turnoRepositorio.findById(id).get();
     }
+    
+    @Transactional
+    public Turno actualizarTurno(Turno turno){
+        return  turnoRepositorio.save(turno);
+    }
 }

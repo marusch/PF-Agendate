@@ -22,7 +22,7 @@
 
 		<h1>Lista de turnos</h1>
 		<div class="text-center my-3">
-			<a href="/nuevo" class="btn btn-outline-info"><i class="fas fa-user-plus"></i>&nbsp;Añadir turno</a>
+			<a href="/registro-turnos" class="btn btn-outline-info"><i class="fas fa-user-plus"></i>&nbsp;Añadir turno</a>
 		</div>
 
 		<table class="table table-hover">
@@ -32,23 +32,23 @@
 					<th>Nombre</th>
 					<th>Celular</th>
 					<th>Email</th>
-					<th>F.Turno</th>
-					<th >H.Turno</th>
+					<th>Fecha Turno</th>
+					<th>Hora Turno</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="contacto : ${contactos}">
-					<td th:text="${contacto.id}"></td>
-					<td th:text="${contacto.nombre}"></td>
-					<td th:text="${contacto.celular}"></td>
-					<td th:text="${contacto.email}"></td>
-					<td th:text="${#temporals.format(contacto.fechaTurno,'dd/MM/YYYY')}"></td>
-					<td th:text="${contacto.horaTurno}"></td>
+				<tr th:each="turno : ${turnos}">
+					<td th:text="${turno.id}"></td>
+					<td th:text="${turno.nombre}"></td>
+					<td th:text="${turno.celular}"></td>
+					<td th:text="${turno.email}"></td>
+					<td th:text="${#temporals.format(turno.fecha,'dd/MM/YYYY')}"></td>
+					<td th:text="${turno.horaInico}"></td>
 						
-					<td><a th:href="@{/{id}/editar/(id=${contacto.id})}" class="btn btn-outline-success"><i class="fas fa-edit"></i>&nbsp;Editar</a>
-						<a href="#" onclick="eliminarContacto(this)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</a>
+					<td><a th:href="@{/{id}/editar/(id=${turno.id})}" class="btn btn-outline-success"><i class="fas fa-edit"></i>&nbsp;Editar</a>
+						<a href="#" onclick="eliminarTurno(this)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</a>
 
-						<form th:action="@{/{id}/eliminar/(id=${contacto.id})}"
+						<form th:action="@{/{id}/eliminar/(id=${turno.id})}"
 							method="post"></form></td>
 				</tr>
 			</tbody>
@@ -63,8 +63,8 @@
 		crossorigin="anonymous"></script>
 
 	<script>
-      function eliminarContacto(elemento){
-    	  var ok = confirm('¿Estas seguro de eliminar al contacto?');
+      function eliminarTurno(elemento){
+    	  var ok = confirm('¿Estas seguro de eliminar al turno?');
     	  
     	  if(ok){
     		  elemento.nextElementSibling.submit();
