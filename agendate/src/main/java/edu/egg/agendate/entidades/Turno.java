@@ -1,6 +1,6 @@
 package edu.egg.agendate.entidades;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Turno {
@@ -17,32 +23,46 @@ public class Turno {
     @Column(name = "turno_id")
     private Long id;
 
+    @NotBlank(message = "Debe ingresar su nombre")
+    private String nombre;
+
+    @NotEmpty(message = "Debe ingresar su email")
+    @Email
+    private String email;
+
+    @NotBlank(message = "Debe ingresar su celular")
+    private String celular;
+
     @Column
-    private LocalDateTime fechaYHora;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @Future
+    @NotNull(message = "Debe ingresar su fecha de turno")
+    private LocalDate fecha;
 
     @Column
     private LocalTime horaInicio;
 
-    @Column
-    private LocalTime horaFin;
-    
     @ManyToOne
     private Cliente cliente;
-    
+
     @ManyToOne
     private Prestacion prestacion;
 
-    public Turno(Long id, LocalDateTime fecha, LocalTime fechaInicio, LocalTime fechaFin, Cliente cliente, Prestacion prestacion) {
+    public Turno() {
+    }
+
+    public Turno(Long id, String nombre, String email, String celular, LocalDate fecha, LocalTime horaInicio, Cliente cliente, Prestacion prestacion) {
         this.id = id;
-        this.fechaYHora = fecha;
-        this.horaInicio = fechaInicio;
-        this.horaFin = fechaFin;
+        this.nombre = nombre;
+        this.email = email;
+        this.celular = celular;
+        this.fecha = fecha;
+        this.horaInicio = horaInicio;
+     
         this.cliente = cliente;
         this.prestacion = prestacion;
     }
 
-    public Turno() {
-    }
 
     public Long getId() {
         return id;
@@ -52,29 +72,48 @@ public class Turno {
         this.id = id;
     }
 
-    public LocalDateTime getFecha() {
-        return fechaYHora;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public void setFecha(LocalDateTime fecha) {
-        this.fechaYHora = fechaYHora;
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
-    public LocalTime getFechaInicio() {
+    public LocalTime getHoraInicio() {
         return horaInicio;
     }
 
-    public void setFechaInicio(LocalTime fechaInicio) {
-        this.horaInicio = fechaInicio;
+    public void setHoraInicio(LocalTime horaInicio) {
+        this.horaInicio = horaInicio;
     }
 
-    public LocalTime getFechaFin() {
-        return horaFin;
+
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setFechaFin(LocalTime fechaFin) {
-        this.horaFin = fechaFin;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+    
+    
 
     public Cliente getCliente() {
         return cliente;
@@ -93,4 +132,5 @@ public class Turno {
     }
     
     
+
 }
