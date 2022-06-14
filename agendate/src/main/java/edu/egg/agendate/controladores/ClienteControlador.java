@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller
-@RequestMapping("/seccion-clientes") //por ejemplo
+@RequestMapping("/clientes") //por ejemplo
 public class ClienteControlador {
     
     @Autowired
@@ -35,7 +35,7 @@ public class ClienteControlador {
         return mav;
     }
 
-    @GetMapping("/formulario-creacion-clientes")
+    @GetMapping("/formulario_clientes")
     public ModelAndView obtenerFormulario(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("registro-cliente-formulario");
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
@@ -51,7 +51,7 @@ public class ClienteControlador {
         return mav;
     }
 
-    @GetMapping("/formulario-creacion-clientes/{id}")
+    @GetMapping("/formulario_clientes/{id}")
     public ModelAndView obtenerForm(@PathVariable Long id) {
         ModelAndView mav = new ModelAndView("registro-cliente-formulario");
         mav.addObject("person", clienteServicio.obtenerPorId(id));
