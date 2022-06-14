@@ -61,7 +61,7 @@ public class ClienteControlador {
 
     @PostMapping("/crear")
     public RedirectView create(Cliente clienteDto, RedirectAttributes attributes) {
-        RedirectView redirect = new RedirectView("/seccion-clientes");
+        RedirectView redirect = new RedirectView("/login");
 
         try {
             clienteServicio.crear(clienteDto);

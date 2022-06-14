@@ -2,66 +2,72 @@
 <meta charset="UTF-8"/>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: head"></head>
+    <head th:replace="fragments/head :: head"></head>
 
-<body>
-<header th:replace="fragments/header :: header"></header>
+    <body>
+        <header th:replace="fragments/header :: header"></header>
 
-<main>
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-6">
-                <div th:if="${exception}" th:text="${exception}" class="alert alert-danger mb-3"></div>
+        <main>
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <div th:if="${exception}" th:text="${exception}" class="alert alert-danger mb-3"></div>
 
-                <form th:action="@{/clientes/__${action}__}" th:object="${cliente}" method="post" autocomplete="off"
-                      class="needs-validation" novalidate>
-                    <input type="hidden" th:field="*{id}">
+                        <form th:action="@{/clientes/__${action}__}" th:object="${cliente}" method="post" autocomplete="off"
+                              class="needs-validation" novalidate>
+                            <input type="hidden" th:field="*{id}">
 
-                    <div class="form-floating mb-3">
-                        <input type="text" th:field="*{nombre}" id="nombre" class="form-control" placeholder="John"
-                               required>
-                        <label for="nombre">Nombre</label>
-                        <div class="invalid-feedback">Ingrese nombre válido</div>
+                            <div class="form-floating mb-3">
+                                <input type="text" th:field="*{nombre}" id="nombre" class="form-control" placeholder="John"
+                                       required>
+                                <label for="nombre">Nombre</label>
+                                <div class="invalid-feedback">Ingrese nombre válido</div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" th:field="*{apellido}" id="apellido" class="form-control" placeholder="Doe"
+                                       required>
+                                <label for="apellido">Apellido</label>
+                                <div class="invalid-feedback">  Ingrese un apellido válido</div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" th:field="*{telefono}" id="telefono" class="form-control" required>
+                                <label for="telefono">Número de celular</label>
+                                <div class="invalid-feedback">Ingrese un número de celular válido</div>
+                            </div>
+
+
+                            <div class="form-floating mb-3">
+                                <input type="text" th:field="*{email}" id="email" class="form-control" required>
+                                <label for="email">Correo electrónico</label>
+                                <div class="invalid-feedback">Ingrese una dirección de correo válido</div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="password" th:field="*{contraseña}" id ="contraseña" class="form-control" required>
+                                <label for="contraseña">Contraseña</label>
+                                <div class="invalid-feedback">Ingrese una contraseña válido</div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="password" th:field="*{confirmarContraseña}" id ="confirmarContraseña" class="form-control" required>
+                                <label for="contraseña">repita la Contraseña</label>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <button th:text="${action == 'create' ? 'Create' : 'Update'}" type="submit"
+                                    class="btn btn-primary"></button>
+                        </form>
                     </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="text" th:field="*{apellido}" id="apellido" class="form-control" placeholder="Doe"
-                               required>
-                        <label for="apellido">Apellido</label>
-                        <div class="invalid-feedback">  Ingrese un apellido válido</div>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="text" th:field="*{telefono}" id="telefono" class="form-control" required>
-                        <label for="telefono">Número de celular</label>
-                        <div class="invalid-feedback">Ingrese un número de celular válido</div>
-                    </div>
-                    
-                
-                    <div class="form-floating mb-3">
-                        <input type="text" th:field="*{email}" id="email" class="form-control" required>
-                        <label for="email">Correo electrónico</label>
-                        <div class="invalid-feedback">Ingrese una dirección de correo válido</div>
-                    </div>
-
-                      <div class="form-floating mb-3">
-                        <input type="password" th:field="*{contraseña}" id ="contraseña" class="form-control" required>
-                        <label for="contraseña">Contraseña</label>
-                        <div class="invalid-feedback">Ingrese una contraseña válido</div>
-                    </div>
-
-                    <button th:text="${action == 'create' ? 'Create' : 'Update'}" type="submit"
-                            class="btn btn-primary"></button>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
-</main>
+        </main>
 
-<footer th:replace="fragments/footer :: footer"></footer>
+        <footer th:replace="fragments/footer :: footer"></footer>
 
-<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-<script th:src="@{/js/validation.js}"></script>
-</body>
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{/js/validation.js}"></script>
+    </body>
 
 </html>
