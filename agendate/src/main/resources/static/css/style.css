@@ -41,7 +41,7 @@ body {
 }
 
 a {
-     color: #1f1f1f;
+     color: #714B9D;
      text-decoration: none !important;
      outline: none !important;
      -webkit-transition: all .3s ease-in-out;
@@ -63,7 +63,7 @@ h6 {
      padding: 0 0 10px 0;
      font-weight: normal;
      line-height: normal;
-     color: #111111;
+     color: #714B9D;
      margin: 0
 }
 
@@ -105,7 +105,7 @@ h3 a,
 h4 a,
 h5 a,
 h6 a {
-     color: #212121;
+     color: #714B9D;
      text-decoration: none!important;
      opacity: 1
 }
@@ -130,7 +130,7 @@ p {
 }
 
 a {
-     color: #222222;
+     color: #714B9D;
      text-decoration: none;
      outline: none !important;
 }
@@ -275,18 +275,18 @@ ul.costomer li {
 ul.costomer li a {
      color: #fff;
 }
-ul.costomer li a span {color: #5502bb;}
+ul.costomer li a span {color: #714B9D;}
 
 /*-- header area --*/
 
 
-/*--------------------------------------------------------------------- top banner area ---------------------------------------------------------------------*/
+/*--------------------------------------------------------------------- top area ---------------------------------------------------------------------*/
 
 
 /*--------------------------------------------------------------------- layout new css ---------------------------------------------------------------------*/
 
 .header_bg {
-     background: url(../images/banner.png);
+     background: url(../images/lila.jpg);
      background-repeat: no-repeat;
      background-size: cover;
      background-size: cover;
@@ -349,7 +349,7 @@ ul.costomer li a span {color: #5502bb;}
 
 .text-bg a {
      font-size: 16px;
-     background-color: #1f1716;
+     background-color: #714B9D;
      color: #fff;
      padding: 10px 0px;
      width: 100%;
@@ -361,7 +361,7 @@ ul.costomer li a span {color: #5502bb;}
 }
 
 .text-bg a:hover {
-     background-color: #5502bb;
+     background-color: #DC9F79;
      color: #fff;
 }
 
@@ -391,7 +391,8 @@ ul.costomer li a span {color: #5502bb;}
 
 /** quality section **/
 
-.quality {background: #7122e7; padding-top: 80px; padding-bottom: 350px;}
+.quality {background: #DC9F79
+     ; padding-top: 80px; padding-bottom: 350px;}
 .quality .quality_box {padding: 15px;}
 .quality .quality_box figure {margin: 0;}
 .quality .quality_box figure img {width:100%; }
@@ -401,7 +402,8 @@ content: "";
 left: 15px;
 border-top: 20px;
 height: 20px;
-background: #f67b18;
+background: #DC9F79
+;
 width: 77%;
 top: -5px;
 }
@@ -410,7 +412,8 @@ position: absolute;
 content: "";
 left: 10px;
 height: 80%;
-background: #f67b18;
+background: #DC9F79
+;
 width: 20px;
 top: -5px;
 }
@@ -419,7 +422,7 @@ top: -5px;
 
 .quality_text {
     text-align: center;
-    background: #ddd;
+    background: #fff;
     padding: 20px;
     margin-left: -102px;
     margin-right: 50px;
@@ -457,284 +460,44 @@ color: #6e6d70;
     font-size: 16px;
 }
 
-.carousel-indicators .active {background: #5502bb;}
-.carousel-indicators li {
-     background: #f67b18;
-     width: 30px;
-     height: 10px;
-     margin-right: 0px;
-     margin-left: 0px;
-}
-.carousel-control-next-icon, .carousel-control-prev-icon {display: none;}
+
 
 /** end customers section **/
 
+.text-bg-1 {
+     max-width: 542px;
+     float: right;
+     width: 100%;
+}
 
+.text-bg-1 a {
+     font-size: 16px;
+     background-color: #714B9D;
+     color: #fff;
+     padding: 10px 0px;
+     width: 100%;
+     max-width: 190px;
+     text-align: justify;
+     text-transform: uppercase;
+     border-radius: 25px;
+}
 
+.text-bg-1 a:hover {
+     background-color: #DC9F79;
+     color: #fff;
+}
 
 /** testimonial section **/
 
-.testimonial {
-     padding: 60px 0;
-     background: #f5f4f5;
-}
-
-.testimonial .titlepage h2 {
-
-     margin-bottom: 20px;
-}
-
-.testimonial .titlepage p {
-     color: #000;
-     font-size: 17px;
-     line-height: 28px;
-}
-
-.owl-dot.active {
-     background: #7122e7 !important;
-}
-
-.item:hover {
-
-    background: #5502bb;
-    transition: ease-in all 0.5s;
-
-}    
-
-.item {
-     text-align: center;
-     background: #f67b18;
-     border-radius: 20px;
-     padding: 20px;
-}
-
-.item span {
-     background: #fff;
-     width: 50px;
-     height: 50px;
-     color: #3fbc61;
-     ff;
-     display: inline-block;
-     border-radius: 30px;
-}
-
-.item h3 {
-     font-size: 25px;
-     line-height: 29px;
-     padding: 10px 10px 10px 10px;
-     color: #fff;
-     text-transform: uppercase;
-}
-
-.item p {
-     padding: 0px 10px 10px 10px;
-     color: #fff;
-}
-
-.owl-nav {
-     display: none;
-}
-
-.owl-dots {
-     text-align: center;
-     margin-top: 30px;
-}
-
-.owl-dot {
-     background: #f67b18 !important;
-     width: 25px;
-     height: 25px;
-     border-radius: 25px;
-     margin: 0px 5px;
-}
-
-
-/** end testimonial section **/
 
 
 /** Asked section **/
-.d_flexw {display: flex;
- justify-content: center;flex-wrap: wrap;
-}
-.asked_main {
-     padding-top: 90px;
-}
-
-
-
-.slider span {
-     float: right;
-     cursor: pointer;
-     font-size: 30px;
-     line-height: 29px;
-     color: #fa7528;
-}
-
-.asked_main .ask_box {
-     max-width: 539px;
-     width: 100%;
-     float: left;
-}
-
-.simpaly {
-padding: 10px 10px 10px 20px;
-border: #fa7528 solid 2px;
-margin-bottom: 20px;
-border-radius: 10px;
-}
-
-.slider a {
-     color: #272827;
-     font-size: 17px;
-     line-height: 20px;
-     font-weight: 500;
-}
-
-@import "bourbon";
-$white:#fff;
-$grey: #999;
-@import url(https://fonts.googleapis.com/css?family=News+Cycle);
-.slider {
-     font: 1.1em 'News Cycle', sans-serif;
-     padding: 1%;
-     background: $grey;
-     color: $white;
-     margin-bottom: 1%;
-     span {
-          margin-right: .3%;
-     }
-     a {
-          text-decoration: none;
-          color: $white;
-     }
-}
-
-.content {
-     font: 1em 'News Cycle', sans-serif;
-     padding: 1%;
-     p {
-          margin-bottom: 1%;
-     }
-}
 
 
 /** end Asked section **/
 
 
 /** contact section **/
-.bg_ba {
-     font-family: Poppins;
-     background: url(../images/bg.jpg);
-     background-repeat: no-repeat;
-     background-size: cover;
-}
-
-
-
-.contact .titlepage {
-     text-align: left;
-     padding-top: 20px;
-}
-.contact .titlepage h2 {color: #fff; font-weight: bold;}
-.contact {
-     padding: 90px 0px;
-     font-family: Poppins;
-     padding-top: 252px;
-}
-
-.main_form {
-    padding-top: 137px;
-}
-
-.contact .main_form .contactus {
-     border: #8c8c8b solid 1px;
-     padding: 0px 1px;
-     margin-bottom: 20px;
-     width: 100%;
-     height: 42px;
-     background: transparent;
-     color: #8c8c8b;
-     font-size: 16px;
-     border-top: inherit;
-     border-right: inherit;
-     border-left: inherit;
-}
-
-.contact .main_form .textarea {
-     margin-bottom: 25px;
-     color: #8c8c8b !important;
-     width: 100%;
-     border: #8c8c8b solid 1px;
-     padding: 0px 1px;
-     padding-top: 38px;
-     background: transparent;
-     border-top: inherit;
-     border-right: inherit;
-     border-left: inherit;
-}
-
-.contact .main_form .send {
-     font-size: 16px;
-     transition: ease-in all 0.5s;
-     background-color: #000;
-     color: #fff;
-     padding: 12px 70px;
-     margin: 0 auto;
-     display: block;
-}
-
-.contact .main_form .send:hover {
-     background-color: #fd882f;
-     transition: ease-in all 0.5s;
-     color: #fff;
-}
-
-#contact *::placeholder {
-     color: #8c8c8b;
-     opacity: 1;
-}
-
-.current {
-     color: #fff;
-     margin-top: -4px;
-     position: absolute;
-}
-
-.white {
-     color: #fe9e37;
-}
-
-.cont {
-     text-align: left;
-}
-
-.cont span {
-     color: #fff;
-     font-size: 50px;
-     line-height: 70px;
-     padding: 70px 0px 65px 0px;
-     display: inline-block;
-     font-weight: 500;
-}
-
-.cont a {
-     font-size: 20px;
-     transition: ease-in all 0.5s;
-     background-color: #fff;
-     color: #fd882f;
-     width: 100%;
-     max-width: 275px;
-     padding: 7px 0px;
-     text-align: center;
-     display: inline-block;
-}
-
-.cont a:hover {
-     background-color: #fd882f;
-     transition: ease-in all 0.5s;
-     color: #fff;
-}
-
 
 /** end contact section **/
 
@@ -743,7 +506,7 @@ $grey: #999;
 
 .footer {
      padding: 20px 0px;
-     background: #fa7528;
+     background: #DC9F79;
 }
 
 .footer p {

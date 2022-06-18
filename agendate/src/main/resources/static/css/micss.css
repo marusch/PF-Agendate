@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap'
+);
+
+
+#mi-carousel {
+    height: 300px;
+}
+
+.carousel-inner > .item > img {
+    width:640px;
+    height:360px;
+  }
+
+  .carousel {
+    width:640px;
+    height:360px;
+  }
+
+  .w-100 {
+    width: 100% !important;
+    height: 75vh;
+  }
+
+  body {
+    background-image: url(img/fondo.jpg);
+    font-family: 'Alegreya Sans', sans-serif;
+  }
+
