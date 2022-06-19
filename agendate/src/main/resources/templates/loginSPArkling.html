@@ -1,35 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>AgenDate</title>
-        <!-- Favicon-->
-       
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/micss.css" crossorigin="anonymous">
-        <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
-</head>
+
+    <head th:replace="fragments/head :: head"></head>
+    
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fde3e9">
-            <div class="container px-5">
-                <a class="navbar-brand" href="#!">Hola</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Quienes somos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Servicios</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Reservar</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    
+    <header th:replace="fragments/auth-header :: header"></header>
 
         
         <main>
@@ -66,9 +42,7 @@
             </div>
         </main>
     
-        <footer class="py-5" style="background-color: #fde3e9">
-            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; AgenDate 2022</p></div>
-        </footer>
+        <footer th:replace="fragments/footer :: footer"></footer>
         
 
 </body>

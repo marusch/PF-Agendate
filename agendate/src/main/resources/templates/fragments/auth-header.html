@@ -1,12 +1,18 @@
 <header th:fragment="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a th:href="@{/}" class="navbar-brand">Home</a>
-
-            <div class="d-flex justify-content-end" id="menu">
-                <a class="btn btn-light me-2" th:href="@{/auth/login}">Login</a>
-                <a class="btn btn-light" th:href="@{/auth/sign-up}">Sign up</a>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #714B9D">
+            <div class="container px-5">
+                <a class="navbar-brand" style="color: #DC9F79">
+                    <img src="img/logo-sparkling.png" alt="70" width="70" height="45" class="mx-auto d-block">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" style="color: #DC9F79"  th:href="@{/auth/formulario_clientes}">Registrarme</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color: #DC9F79"  th:href="@{/auth/login}">Iniciar sesión</a></li>
+                    </ul>
+                </div>
             </div>
-       </div>
-    </nav>
+        </nav>
+    </div>
 </header>

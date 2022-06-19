@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
    <head>
@@ -34,76 +32,73 @@
    </head>
    <!-- body -->
    <body class="main-layout">
-       <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+         <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
       <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+      <!-- <div class="loader_bg">
+         <div class="loader"><img src="images/loading.gif" alt="#" /></div> -->
       </div>
       <!-- end loader -->
       <!-- header -->
-      <header>
-         <!-- header inner -->
-         <div class="header_bg">
-            <div class="header">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                        <div class="full">
-                           <div class="center-desk">
-                              <div class="logo">
-                                 <a href="index.html"><img src="images/logo.png" alt="#" /></a>
+         <header>
+            <!-- header inner -->
+            <div class="header_bg">
+                  <div class="header">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                              <div class="full">
+                                 <div class="center-desk">
+                                    <div class="logo">
+                                       <a href="index.html"><img src="images/logo-agendate-rectangular.png" alt="130" width="130" height="130" /></a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                              <ul class="costomer">
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               <!-- end header inner -->
+               <!-- end header -->
+               <!-- banner -->
+                  <section class="banner_main">
+                     <div class="container">
+                        <div class="row d_flex">
+                           <div class="col-md-6">
+                              <div class="text-bg">
+                                 <span></span>
+                                 <!-- <h1>Agendate</h1> -->
+                                 <p>Administramos tu tiempo de forma eficiente, mediante una interfaz intuitiva y sencilla para brindarte una experiencia única en la gestión integral de tus servicios.</p>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="text-img">
+                                 <figure><img src="images/img.png" alt="70" width="70" height="70"/></figure>
                               </div>
                            </div>
                         </div>
                      </div>
-                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                        <ul class="costomer">
-                           <li> <a href="#"> Inicio de sesion</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
+                  </section>
             </div>
-            <!-- end header inner -->
-            <!-- end header -->
-            <!-- banner -->
-            <section class="banner_main">
-               <div class="container-fluid">
-                  <div class="row d_flex">
-                     <div class="col-md-6">
-                        <div class="text-bg">
-                           <span></span>
-                           <h1>AGENDATE</h1>
-                           <p>Administramos tu tiempo de forma eficiente, mediante una interfaz intuitiva y sencilla para brindarte una experiencia única en la gestión integral de tus servicios.
-                              .</p>
-                           <a href="#">Inicio de sesion</a>
-                        </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="text-img">
-                           <figure><img src="images/img.png" /></figure>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </section>
-         </div>
-      </header>
+         </header>
       <!-- end banner -->
       
       <!-- quality  -->
      <div class="quality ">
         <div class="container">
            <div class="row d_flex">
-              <div class="col-md-8">
+              <div class="col-md-7">
                  <div class="quality_box">
-                    <figure><img src="images/qt.jpg" alt="#"/></figure>
+                    <figure><img src="images/agenda.jpg" alt="80" width="80" height="80"/></figure>
                  </div>
               </div>
-               <div class="col-md-4">
+               <div class="col-md-5">
                  <div class="quality_text">
                    <h3>Potenciamos tu negocio</h3>
-                    <p>Somos la herramienta óptima más completa para automatizar tus tareas mientras conectas con tus clientes. </p>
+                    <p>Somos la herramienta óptima más completa para automatizar tus tareas mientras conectas con tus clientes.</p>
                  </div>
               </div>
            </div>
@@ -111,250 +106,54 @@
      </div>
       <!-- end quality  -->
 
-<div class="customers">
-   <div class="container">
-      <div class="row">
-         <div class="col-md-12">
-            <div class="titlepage">
-               <h2>Nuestros Clientes </h2>
+      <div class="customers">
+         <div class="container">
+            <div class="row">
+               <div class="col">
+                  <div class="titlepage">
+                     <h2 style="text-align: center;">Utilizan AgenDate:</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+                  <div id="myCarousel" class="carousel slide banner2" data-ride="carousel">
+            <ol class="carousel-indicators">
+               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+               <li data-target="#myCarousel" data-slide-to="1"></li>
+               <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+               
+                  <div class="container">
+                  <div class="carousel-caption">
+                  <img src="images/logo-sparkling.png" alt="500" width="500" height="500"/>
+                     <p>SPArkling Stetica utiliza AgenDate para la gestión de turnos de sus profesionales,<br>maximizando así la gestión del tiempo para mejorar el flujo de trabajo.</p>
+                      
+                     <p><a href="../indexSPArkling.html">Conoce cómo lo utiliza</a></p>
+                     <!--- <p>clientes ofrecen una amplia gama de servicios, valiéndose de las funcionalidades que le proporciona la aplicación, simplificando así</p> --->
+                  </div>
+                  </div>
+                  
+
+               </div>
+            </div>
+            
             </div>
          </div>
       </div>
-      <div class="row">
-            <div id="myCarousel" class="carousel slide banner2" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-           
-            <div class="container">
-              <div class="carousel-caption">
-              <figure><img src="images/banner1.png" alt="#"/></figure>
-                <p>Nuestros clientes ofrecen una amplia gama de servicios, valiéndose de las funcionalidades que le proporciona la aplicación, simplificando así los procedimientos y agilizando la toma de decisiones. <br> Impulsarlos es nuestro objetivo y nuestra inspiración.</p>
-               
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-           
-            <div class="container">
-              <div class="carousel-caption">
-               <figure><img src="images/banner2.png" alt="#"/></figure>
-                <p>Nuestros clientes ofrecen una amplia gama de servicios, valiéndose de las funcionalidades que le proporciona la aplicación, simplificando así los procedimientos y agilizando la toma de decisiones. <br> Impulsarlos es nuestro objetivo y nuestra inspiración.</p>
-                
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-           
-            <div class="container">
-              <div class="carousel-caption">
-              <figure><img src="images/banner3.png" alt="#"/></figure>
-                <p>Nuestros clientes ofrecen una amplia gama de servicios, valiéndose de las funcionalidades que le proporciona la aplicación, simplificando así los procedimientos y agilizando la toma de decisiones.  <br> Impulsarlos es nuestro objetivo y nuestra inspiración.</p>
-               
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      </div>
-   </div>
+      
 </div>
-
-
-      <!-- testimonial -->
-      <div class="testimonial">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Nuestros Servicios </h2>
-                     <p>use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the<br>
-                        middle of text. All the Lorem Ipsum generators on the
-                     </p>
-                  </div>
-               </div>
-            </div>
-            <section id="demos">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="owl-carousel owl-theme">
-                        <div class="item">
-                           <span></span>
-                           <h3>when looking </h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
-                        </div>
-                        <div class="item">
-                           <span></span>
-                           <h3>when looking </h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
-                        </div>
-                        <div class="item">
-                           <span></span>
-                           <h3>when looking </h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
-                        </div>
-                        <div class="item">
-                           <span></span>
-                           <h3>when looking </h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
-                        </div>
-                        <div class="item">
-                           <span></span>
-                           <h3>when looking </h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
-                        </div>
-                        <div class="item">
-                           <span></span>
-                           <h3>when looking </h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
-                        </div>
-                        <div class="item">
-                           <span></span>
-                           <h3>when looking </h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </section>
-         </div>
-      </div>
-      <!-- end testimonial -->
-      <!-- Asked -->
-      <div class="bg_ba">
-      <div  class="asked_main">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Frequently Asked Questions</h2>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="container">
-            <div class="row d_flexw">
-           
-               <div class="col-md-6">
-                  <div class="ask_box">
-                     <div class="simpaly">
-                        <div class="slider"><span>+</span><a href="#">
-                           Why is simply dummy text of the printing my text of the</a>
-                        </div>
-                        <div class="content">
-                           <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its l
-                              ore-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages 
-                           </p>
-                        </div>
-                     </div>
-                     <div class="simpaly">
-                        <div class="slider"><span>+</span><a href="#">
-                           Why is simply dummy text of the printing my text of the</a>
-                        </div>
-                        <div class="content">
-                           <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its l
-                              ore-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages 
-                           </p>
-                        </div>
-                     </div>
-                     <div class="simpaly">
-                        <div class="slider"><span>+</span><a href="#">
-                           Why is simply dummy text of the printing my text of the</a>
-                        </div>
-                        <div class="content">
-                           <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its l
-                              ore-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages 
-                           </p>
-                        </div>
-                     </div>
-                     <div class="simpaly">
-                        <div class="slider"><span>+</span><a href="#">
-                           Why is simply dummy text of the printing my text of the</a>
-                        </div>
-                        <div class="content">
-                           <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its l
-                              ore-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages 
-                           </p>
-                        </div>
-                     </div>
-                     <div class="simpaly">
-                        <div class="slider"><span>+</span><a href="#">
-                           Why is simply dummy text of the printing my text of the</a>
-                        </div>
-                        <div class="content">
-                           <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its l
-                              ore-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages 
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   
-      <!-- end Asked -->
-      <!-- contact testimonial-->
-      <div id="contact" class="contact">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="titlepage">
-                     <h2>Contact <span class="white">Us</span></h2>
-                  </div>
-                  <div class="cont">
-                     <span>Now Started 
-                     Download </br>
-                     Free Landing page</span>
-                     <a href="#">Download</a>
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <form class="main_form">
-                     <div class="row">
-                        <div class="col-sm-12">
-                           <input class="contactus" placeholder="Full Name" type="text" name="
-                              Full Name">
-                        </div>
-                        <div class="col-sm-12">
-                           <input class="contactus" placeholder="Email" type="text" name=" Email">
-                        </div>
-                        <div class="col-sm-12">
-                           <input class="contactus" placeholder="Phone" type="text" name="Phone">
-                        </div>
-                        <div class="col-sm-12">
-                           <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
-                        </div>
-                        <div class="col-sm-12">
-                           <button class="send">Send</button>
-                        </div>
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-      </div>
    </div>
       <!-- end contact -->
+      
       <!--  footer -->
       <footer>
          <div class="footer">
             <div class="container">
                <div class="row">
                   <div class="col-md-12">
-                     <p>© 2019 All Rights Reserved. <a href="https://html.design/">Free html Templates</a></p>
+                     <p> © 2022 AgenDate. <a href="https://html.design/"></a></p>
                   </div>
                </div>
             </div>
