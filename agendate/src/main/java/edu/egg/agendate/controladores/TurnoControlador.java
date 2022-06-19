@@ -1,9 +1,10 @@
 package edu.egg.agendate.controladores;
 
-import edu.egg.agendate.entidades.Cliente;
 import edu.egg.agendate.entidades.Turno;
+import edu.egg.agendate.servicios.ClienteServicio;
 import edu.egg.agendate.servicios.TurnoServicio;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-
 public class TurnoControlador {
+
+    @Autowired
+    private ClienteServicio clienteServicio;
 
     @Autowired
     private TurnoServicio turnoServicio;
@@ -36,16 +39,24 @@ public class TurnoControlador {
     }
 
     @PostMapping("/registro-turnos")
-    public String guardarTurno(@Validated Turno turno, Cliente cliente, BindingResult bindingResult, RedirectAttributes redirect, Model modelo) {
-        if (bindingResult.hasErrors()) {
+    public String guardarTurno(@Validated Turno turno, BindingResult bindingResult, HttpSession session, RedirectAttributes redirect, Model modelo) {
+
+        if (turnoServicio.validacionTurno(turno)) {
+
+            redirect.addFlashAttribute("msgError", "Fecha y hora no disponibles");
+            return "redirect:registro-turnos";
+
+        } else if (bindingResult.hasErrors()) {
+
             modelo.addAttribute("turno", turno);
             return "registro-turnos";
+
+        } else {
+
+            turnoServicio.guardarTurno(turno, session);
+            redirect.addFlashAttribute("msgExito", "El turno ha sido agregado con exito");
+            return "redirect:lista-turnos";
         }
-
-        turnoServicio.guardarTurno(turno, cliente);
-        redirect.addFlashAttribute("msgExito", "El turno ha sido agregado con exito");
-
-        return "redirect:lista-turnos";
     }
 
     @GetMapping("/{id}/editar")
@@ -57,25 +68,31 @@ public class TurnoControlador {
     }
 
     @PostMapping("/{id}/editar")
-    public String actualizarTurno(@PathVariable Long id, @Validated Turno turno, Cliente cliente,
+    public String actualizarTurno(@PathVariable Long id, @Validated Turno turno,
             BindingResult bindingResult, RedirectAttributes redirect, Model modelo) {
 
         Turno turnoExistente = turnoServicio.obtenerTurnoPorId(id);
-        if (bindingResult.hasErrors()) {
+
+        if (turnoServicio.validacionTurno(turno)) {
+            redirect.addFlashAttribute("msgError", "Fecha y hora no disponibles");
+            return "redirect:";
+
+        } else if (bindingResult.hasErrors()) {
             modelo.addAttribute("turno", turno);
             return "registro-turnos";
+        } else {
+
+            turnoExistente.setFecha(turno.getFecha());
+            turnoExistente.setHora(turno.getHora());
+            turnoExistente.getNombreUsuario();
+            turnoExistente.getApellidoUsuario();
+            turnoExistente.getEmailUsuario();
+            turnoExistente.getTelefonoUsuario();
+
+            turnoServicio.actualizarTurno(turnoExistente);
+            redirect.addFlashAttribute("msgExito", "El turno ha sido actualizado correctamente");
+            return "redirect:/lista-turnos";
         }
-
-        turnoExistente.setNombre(turno.getNombre());
-        turnoExistente.setCelular(turno.getCelular());
-        turnoExistente.setEmail(turno.getEmail());
-        turnoExistente.setFecha(turno.getFecha());
-        turnoExistente.setHoraInicio(turno.getHoraInicio());
-        turnoExistente.setCliente(turno.getCliente());
-
-        turnoServicio.actualizarTurno(turno);
-        redirect.addFlashAttribute("msgExito", "El turno ha sido actualizado correctamente");
-        return "redirect:/lista-turnos";
     }
 
     @PostMapping("/{id}/eliminar")

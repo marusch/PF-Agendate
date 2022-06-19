@@ -49,12 +49,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 //"/img/**").permitAll()
                 resources).permitAll()
                 .antMatchers("/","/index").permitAll()
+                .antMatchers("registro-turnos","/registration").permitAll()
                 .and().formLogin()                                                            
                         .loginPage("/login") 
                         .loginProcessingUrl("/logincheck")
                         .usernameParameter("email") 
                         .passwordParameter("contraseña") 
-                        .defaultSuccessUrl("/index", true).permitAll();
+                        .defaultSuccessUrl("/index", true).permitAll()
+                .and().csrf().disable();
                 //.antMatchers("/inicio/login").permitAll();
                 //.anyRequest().authenticated()
                 //.antMatchers("/profesional*","/").access("hasAuthority('ROLE_USER')");

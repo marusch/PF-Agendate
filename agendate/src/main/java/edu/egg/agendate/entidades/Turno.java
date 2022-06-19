@@ -1,17 +1,13 @@
 package edu.egg.agendate.entidades;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.Future;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,46 +19,54 @@ public class Turno {
     @Column(name = "turno_id")
     private Long id;
 
-    @NotBlank(message = "Debe ingresar su nombre")
-    private String nombre;
-
-    @NotEmpty(message = "Debe ingresar su email")
-    @Email
-    private String email;
-
-    @NotBlank(message = "Debe ingresar su celular")
-    private String celular;
+    @Column
+    private String nombreUsuario;
 
     @Column
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private String apellidoUsuario;
+
+    @Column
+    private String emailUsuario;
+
+    @Column
+    private Long telefonoUsuario;
+
+    @Column
+    @DateTimeFormat(pattern="yyyy-MM-dd") 
     @Future
-    @NotNull(message = "Debe ingresar su fecha de turno")
     private LocalDate fecha;
 
+    @NotNull(message = "Debe ingresar la hora de turno")
     @Column
-    private LocalTime horaInicio;
+    private String hora;
 
     @ManyToOne
     private Cliente cliente;
 
     @ManyToOne
-    private Prestacion prestacion;
+    private Usuario usuario;
 
+    /*
+    @ManyToOne
+    @Transient
+    private Prestacion prestacion;
+     */
     public Turno() {
     }
 
-    public Turno(Long id, String nombre, String email, String celular, LocalDate fecha, LocalTime horaInicio, Cliente cliente, Prestacion prestacion) {
+    public Turno(Long id, String nombreUsuario, String apellidoUsuario, String emailUsuario, Long telefonoUsuario, LocalDate fecha, String hora, Cliente cliente, Usuario usuario) {
         this.id = id;
-        this.nombre = nombre;
-        this.email = email;
-        this.celular = celular;
+        this.nombreUsuario = nombreUsuario;
+        this.apellidoUsuario = apellidoUsuario;
+        this.emailUsuario = emailUsuario;
+        this.telefonoUsuario = telefonoUsuario;
         this.fecha = fecha;
-        this.horaInicio = horaInicio;
-     
+        this.hora = hora;
         this.cliente = cliente;
-        this.prestacion = prestacion;
+        this.usuario = usuario;
     }
 
+    
 
     public Long getId() {
         return id;
@@ -80,40 +84,13 @@ public class Turno {
         this.fecha = fecha;
     }
 
-    public LocalTime getHoraInicio() {
-        return horaInicio;
+    public String getHora() {
+        return hora;
     }
 
-    public void setHoraInicio(LocalTime horaInicio) {
-        this.horaInicio = horaInicio;
+    public void setHora(String hora) {
+        this.hora = hora;
     }
-
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-    
-    
 
     public Cliente getCliente() {
         return cliente;
@@ -123,14 +100,48 @@ public class Turno {
         this.cliente = cliente;
     }
 
-    public Prestacion getPrestacion() {
-        return prestacion;
+    public void setCliente(String a) {
+
     }
 
-    public void setPrestacion(Prestacion prestacion) {
-        this.prestacion = prestacion;
+    public Usuario getUsuario() {
+        return usuario;
     }
-    
-    
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getApellidoUsuario() {
+        return apellidoUsuario;
+    }
+
+    public void setApellidoUsuario(String apellidoUsuario) {
+        this.apellidoUsuario = apellidoUsuario;
+    }
+
+    public String getEmailUsuario() {
+        return emailUsuario;
+    }
+
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+    }
+
+    public Long getTelefonoUsuario() {
+        return telefonoUsuario;
+    }
+
+    public void setTelefonoUsuario(Long telefonoUsuario) {
+        this.telefonoUsuario = telefonoUsuario;
+    }
 
 }

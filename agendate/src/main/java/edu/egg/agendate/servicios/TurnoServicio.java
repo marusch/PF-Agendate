@@ -4,6 +4,7 @@ import edu.egg.agendate.entidades.Cliente;
 import edu.egg.agendate.entidades.Turno;
 import edu.egg.agendate.repositorios.TurnoRepositorio;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,19 +15,38 @@ public class TurnoServicio {
     @Autowired
     private TurnoRepositorio turnoRepositorio;
 
+    public boolean validacionTurno(Turno turno) {
+
+        if (turnoRepositorio.existsByHora(turno.getHora()) && turnoRepositorio.existsByFecha(turno.getFecha())) {
+
+            return true;
+        }
+        return false;
+    }
+
     @Transactional
-    public Turno guardarTurno(Turno turno, Cliente cliente) { 
-        turno.setCliente(cliente);
-       
+    public Turno guardarTurno(Turno turnoDto, HttpSession session) {
+
+        Turno turno = new Turno();
+        turno.setFecha(turnoDto.getFecha());
+        turno.setHora(turnoDto.getHora());
+        Cliente cliente = (Cliente) session.getAttribute("usuariosession");
+        String nombre = cliente.getNombre();
+        turno.setNombreUsuario(nombre);
+        String apellido = cliente.getApellido();
+        turno.setApellidoUsuario(apellido);
+        String email = cliente.getEmail();
+        turno.setEmailUsuario(email);
+        Long telefono = cliente.getTelefono();
+        turno.setTelefonoUsuario(telefono);
+
         return turnoRepositorio.save(turno);
 
     }
 
     @Transactional
-    public Turno ModificarTurno(Long id, Turno turnoDto, Cliente cliente) {
+    public Turno ModificarTurno(Long id, Turno turnoDto) {
         Turno turno = turnoRepositorio.findById(turnoDto.getId()).get();
-        turno.setCliente(cliente);
-       
 
         return turnoRepositorio.save(turno);
     }
@@ -44,9 +64,9 @@ public class TurnoServicio {
     public Turno obtenerTurnoPorId(Long id) {
         return turnoRepositorio.findById(id).get();
     }
-    
+
     @Transactional
-    public Turno actualizarTurno(Turno turno){
-        return  turnoRepositorio.save(turno);
+    public Turno actualizarTurno(Turno turno) {
+        return turnoRepositorio.save(turno);
     }
 }

@@ -33,6 +33,13 @@ public class Cliente extends Usuario {
         super();
     }
 
+    public Cliente(Long id, String nombre, String apellido, Long telefono) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+    }
+
     public Cliente(Long id, String nombre, String apellido, Long telefono, String email, String contraseña, String confirmarContraseña, Rol rol) {
         super(id, email, contraseña, confirmarContraseña, rol);
         this.id = id;

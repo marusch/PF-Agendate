@@ -80,5 +80,5 @@ public class Profesional extends Usuario {
     public void setRol(Rol rol) {
         this.rol = rol;
     }
-     
+
 }

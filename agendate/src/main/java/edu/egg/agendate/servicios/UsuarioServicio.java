@@ -1,6 +1,8 @@
 package edu.egg.agendate.servicios;
 
+import edu.egg.agendate.entidades.Profesional;
 import edu.egg.agendate.entidades.Usuario;
+import edu.egg.agendate.repositorios.ProfesionalRepositorio;
 import edu.egg.agendate.repositorios.UsuarioRepositorio;
 import java.util.ArrayList;
 import static java.util.Collections.singletonList;
@@ -24,6 +26,9 @@ public class UsuarioServicio implements UserDetailsService {
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
 
+    @Autowired
+    private ProfesionalRepositorio profesionalRepositorio;
+
     /*
     @Transactional
     public void create(Usuario dto) {
@@ -44,7 +49,6 @@ public class UsuarioServicio implements UserDetailsService {
 
     }
      */
-    
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Usuario usuario = usuarioRepositorio.findByEmail(email);
@@ -72,7 +76,6 @@ public class UsuarioServicio implements UserDetailsService {
             return null;
 
         }
-
     }
 
 }

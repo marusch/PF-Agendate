@@ -11,62 +11,45 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     </head>
     <body>
-
+        <div th:if="${msgError != null}"
+                 class="alert alert-danger alert-dismissible">
+                [[${msgError}]]
+                <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+            </div>
         <div class="row justify-content-center">
             <div class="col-md6 col-lg-4">
                 <h3>[[${turno.id ne null ? 'Editar turno' : 'Registro de turno'}]]</h3>
                 <br>
                 <form action="" method="post" th:object="${turno}">
-                    <div class="mb-3">
-                        <label for="nombre">Nombre : </label> <input id="nombre"
-                                                                     type="text" placeholder="Digite su nombre " th:field="*{nombre}" class="form-control" th:errorClass="is-invalid">
-
-                        <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="invalid-feedback"></div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="celular">Celular : </label> <input id="celular"
-                                                                       type="text" placeholder="Digite su celular " th:field="*{celular}" class="form-control" th:errorClass="is-invalid">
-
-                        <div th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}" class="invalid-feedback"></div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email">Email : </label> <input id="email" type="email"
-                                                                   placeholder="Digite su email " th:field="*{email}" class="form-control" th:errorClass="is-invalid">
-
-                        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid-feedback"></div>
-                    </div>
+                    
                     <div class="mb-3">
                         <label for="fecha">Fecha turno : </label> <input
                             id="fecha" type="date" th:field="*{fecha}" class="form-control" th:errorClass="is-invalid">
-
                         <div th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}" class="invalid-feedback"></div>
+                         
                     </div>
-                    <div class="mb-3">
-                      
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Seleccione su horario de turno, por favor.</option>
-                            <option value="1">14hs</option>
-                            <option value="2">15hs</option>
-                            <option value="3">16hs</option>
-                             <option value="4">17hs</option>
-                              <option value="">18hs</option>
-                              
+
+                    <div class="form-group">	                  
+                        <select class="form-select" th:field="*{hora}">
+                            <option th:value='opcion'>Seleccione su horario de turno, por favor.</option>
+                            <option th:value='16hs'>16hs</option>
+                            <option th:value='17hs'>17hs</option>
+                            <option th:value='18hs'>18hs</option>
+                            <option th:value='19hs'>19hs</option>
+                            <option th:value='20hs'>20hs</option>
                         </select>
                     </div>
-
+                    <br>
                     <div class="text-end">
-                        <button class="btn btn-dark"><i class="fas fa-save"></i>&nbsp;Guardar</button>
-                        <a href="lista-turnos" class="btn btn-outline-dark"><i class="fas fa-backward"></i>&nbsp;Cancelar </a>
+                        <button class="btn btn-secondary active"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+                        <a href="lista-turnos" class="btn btn-light ms-2"><i class="fas fa-backward"></i>&nbsp;Cancelar </a>
                     </div>
                 </form>
             </div>
         </div>
-
-
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
     </body>
 </html>
