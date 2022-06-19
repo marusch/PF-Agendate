@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head th:replace="fragments/head :: head"></head>
+    
+<body>
+    
+    <header th:replace="fragments/auth-header :: header"></header>
+
+        
+        <main>
+            <div class="container p-5">
+                <div class="row">
+                    <div class="col-md-4 mx-auto px-0">
+        
+                        <div class="card text-center shadow" style="background-color: #714B9D">
+                            <div class="card-header">
+                                <h3 style="color: #DC9F79">Iniciar sesión</h3>
+                            </div>
+                            <div class="card-body" style="background-color: #714B9D">
+                                <form th:action="@{/logincheck}" method="post" autocomplete="off" class="needs-validation mb-4"
+                                      novalidate>
+        
+                                    <div class="form-group mb-3">
+                                        <input type="email" name="email" placeholder="Email" class="form-control" required/>
+                                        <div class="invalid-feedback text-start">Este campo es obligatorio.</div>
+                                    </div>
+        
+                                    <div class="form-group mb-3">
+                                        <input type="password" name="contraseña" placeholder="Contraseña" class="form-control" required/>
+                                        <div class="invalid-feedback text-start">Este campo es obligatorio.</div>
+                                    </div>
+        
+                                    <div class="form-group d-grid gap-2">
+                                        <button id="mi-boton" style="background-color: #DC9F79" class="btn btn-light" type="submit">Iniciar sesión</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    
+        <footer th:replace="fragments/footer :: footer"></footer>
+        
+
+</body>
+</html>

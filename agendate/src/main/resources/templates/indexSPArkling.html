@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<head th:replace="fragments/head :: head"></head>
+
+<body background="img/fondo.jpg">
+     <header th:replace="fragments/auth-header :: header"></header>
+     
+        <div class="row-1">
+			<div class="col-12">
+				<div class="carousel slide carousel-fade" id="mi-carousel" data-bs-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img class="img-fluid" alt="Responsive image" src="img/banner-sparkling.jpg" alt="">
+						</div>
+						<div class="carousel-item" data-bs-interval="7000">
+							<div class="carousel-caption">
+								 <!-- <h5>Tu gestor de turnos online</h5> -->
+								<!-- <p>Adaptado a tus tiempos.</p> -->
+							</div>
+							<img class="img-fluid" alt="Responsive image" src="img/banner-contacto.jpg" alt="">
+						</div>
+					</div>
+
+					<!-- Controles -->
+					<button 
+						class="carousel-control-prev"
+						type="button"
+						data-bs-target="#mi-carousel"
+						data-bs-slide="prev"
+					>
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Anterior</span>
+					</button>
+
+					<button 
+						class="carousel-control-next"
+						type="button"
+						data-bs-target="#mi-carousel"
+						data-bs-slide="next"
+					>
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Siguiente</span>
+					</button>
+
+					<!-- Indicadores -->
+					<div class="carousel-indicators">
+						<button 
+							type="button"
+							class="active"
+							data-bs-target="#mi-carousel"
+							data-bs-slide-to="0"
+							aria-label="Slide 1"
+						></button>
+						<button 
+							type="button"
+							class=""
+							data-bs-target="#mi-carousel"
+							data-bs-slide-to="1"
+							aria-label="Slide 2"
+						></button>
+						<button 
+							type="button"
+							class=""
+							data-bs-target="#mi-carousel"
+							data-bs-slide-to="2"
+							aria-label="Slide 3"
+						></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+        <div class="card-group">
+            
+            <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="img/recortadas/faciales.jpg" class="img-fluid"/>
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                </div>
+                <div class="card-body" style="width: 18rem;" >
+                    <h5 class="card-title">Tratamientos corporales</h5>
+                    <p class="card-text">Dale a tu piel el cuidado que se merece.</p>
+                    <a href="#!" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="img/recortadas/estilista.jpg" class="img-fluid"/>
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                    <div class="card-body" style="width: 18rem; background-color: #E5E5E5">
+                        <h5 class="card-title">Hairdressing</h5>
+                        <p class="card-text">Potencia tu estilo unico.</p>
+                        <a href="#!" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="img/recortadas/masajes.jpg" class="img-fluid"/>
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                    <div class="card-body" style="width: 18rem;">
+                        <h5 class="card-title">Spa y relax</h5>
+                        <p class="card-text">Dale a tu cuerpo un descanso de la rutina.</p>
+                        <a href="#!" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 d-none d-md-block"></div>
+            <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="img/recortadas/unias.jpg" class="img-fluid"/>
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                </div>
+                <div class="card-body" style="width: 18rem;">
+                    <h5 class="card-title">Manicura</h5>
+                    <p class="card-text">Nail art, esculpidas, kapping...</p>
+                    <a href="#!" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="img/pies1.jpg" class="img-fluid"/>
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                </div>
+                <div class="card-body" style="width: 18rem;">
+                    <h5 class="card-title">Pedicura</h5>
+                    <p class="card-text">Dale un mimo a tus pies.</p>
+                    <a href="#!" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="img/bronceado.jpg" class="img-fluid"/>
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                    <div class="card-body" style="width: 18rem;">
+                        <h5 class="card-title">Cabina solar</h5>
+                        <p class="card-text">Piel dorada para el verano.</p>
+                        <a href="#!" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+   
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>
