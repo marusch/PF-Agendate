@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
     
 <head th:replace="fragments/head :: head"></head>
 
-<body background="img/fondo.jpg">
+<body background="/static/images/fondo.jpg">
+    
      <header th:replace="fragments/auth-header :: header"></header>
      
         <div class="row-1">
@@ -161,6 +162,9 @@
     </div>
    
     <footer th:replace="fragments/footer :: footer"></footer>
+    
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/validation.js}"></script>
 
 </body>
 </html>
