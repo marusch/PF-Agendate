@@ -1,18 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <title>Lista de turnos</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-            crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    </head>
-    <body>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
+    <head th:replace="fragments/head :: head"></head>
+    <body background="/images/fondo.jpg">
 
+        <header th:replace="fragments/auth-header :: header"></header>
+        
+        <main>
         <div class="container">
             <div th:if="${msgExito != null}"
                  class="alert alert-success alert-dismissible">
@@ -20,11 +14,13 @@
                 <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
             </div>
 
-            <h1>Lista de turnos</h1>
+            <h1 style="text-align:center" >Lista de turnos</h1>
+           
             <div class="text-center my-3">
-                <a href="/registro-turnos" class="btn btn-outline-info"><i class="fas fa-user-plus"></i>&nbsp;Añadir turno</a>
+                <a href="/registro-turnos" class="btn btn-outline-info" style= "background-color: #CEF6F5" ><i class="fas fa-user-plus"></i>&nbsp;Añadir turno</a>
             </div>
 
+             <br>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -51,7 +47,7 @@
                     <td th:text="${#temporals.format(turno.fecha,'yyyy-MM-dd')}"></td>
                     <td th:text="${turno.hora}"></td>
 
-                    <td><a th:href="@{/{id}/editar/(id=${turno.id})}" class="btn btn-outline-success"><i class="fas fa-edit"></i>&nbsp;Editar</a>
+                    <td><a th:href="@{/{id}/editar/(id=${turno.id})}" class="btn btn-outline-success" style= "background-color: #81F7BE"><i class="fas fa-edit"></i>&nbsp;Editar</a>
 
 
 
@@ -67,10 +63,6 @@
 
 
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 
         <script>
             function eliminarTurno(elemento){
@@ -81,5 +73,13 @@
             }
             }
         </script>
+
+        <br>
+        <br>
+        </main>
+        <footer th:replace="fragments/footer :: footer"></footer>
+
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{/js/validation.js}"></script>
     </body>
 </html>
