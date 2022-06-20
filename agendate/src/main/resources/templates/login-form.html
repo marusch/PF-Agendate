@@ -1,52 +1,53 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: head"></head>
+    <head th:replace="fragments/head :: head"></head>
+    
+<body background="/images/fondo.jpg">
+    
+    <header th:replace="fragments/auth-header :: header"></header>
 
-<body>
-
-<header th:replace="fragments/auth-header :: header"></header>
-
-<main>
-    <div class="container p-5">
-        <div class="row">
-            <div class="col-md-4 mx-auto px-0">
-                <div th:if="${error}" th:text="${error}" class="alert alert-danger shadow text-center"></div>
-                <div th:if="${logout}" th:text="${logout}" class="alert alert-success shadow text-center"></div>
-
-                <div class="card text-center shadow">
-                    <div class="card-header">
-                        <h3>Login</h3>
-                    </div>
-                    <div class="card-body">
-                        <form th:action="@{/logincheck}" method="post" autocomplete="off" class="needs-validation mb-4"
-                              novalidate>
-
-                            <div class="form-group mb-3">
-                                <input type="email" name="email" placeholder="Email" class="form-control" required/>
-                                <div class="invalid-feedback text-start">Email is required</div>
+        
+        <main>
+            <div class="container p-5">
+                <div class="row">
+                    <div class="col-md-4 mx-auto px-0">
+                        <div th:if="${error}" th:text="${error}" class="alert alert-danger shadow text-center"></div>
+                        <div th:if="${logout}" th:text="${logout}" class="alert alert-success shadow text-center"></div>
+        
+                        <div class="card text-center shadow" style="background-color: #714B9D">
+                            <div class="card-header">
+                                <h3 style="color: #DC9F79">Iniciar sesión</h3>
                             </div>
-
-                            <div class="form-group mb-3">
-                                <input type="password" name="contraseña" placeholder="Password" class="form-control" required/>
-                                <div class="invalid-feedback text-start">Password is required</div>
+                            <div class="card-body" style="background-color: #714B9D">
+                                <form th:action="@{/logincheck}" method="post" autocomplete="off" class="needs-validation mb-4"
+                                      novalidate>
+        
+                                    <div class="form-group mb-3">
+                                        <input type="email" name="email" placeholder="Email" class="form-control" required/>
+                                        <div class="invalid-feedback text-start">Este campo es obligatorio.</div>
+                                    </div>
+        
+                                    <div class="form-group mb-3">
+                                        <input type="password" name="contraseña" placeholder="Contraseña" class="form-control" required/>
+                                        <div class="invalid-feedback text-start">Este campo es obligatorio.</div>
+                                    </div>
+        
+                                    <div class="form-group d-grid gap-2">
+                                        <button id="mi-boton" style="background-color: #DC9F79" class="btn btn-light" type="submit">Iniciar sesión</button>
+                                    </div>
+                                </form>
                             </div>
-
-                            <div class="form-group d-grid gap-2">
-                                <button class="btn btn-success" type="submit">Send</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</main>
+        </main>
+    
+        <footer th:replace="fragments/footer :: footer"></footer>
+        
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{/js/validation.js}"></script>
 
-<footer th:replace="fragments/footer :: footer"></footer>
-
-<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-<script th:src="@{/js/validation.js}"></script>
 </body>
-
 </html>
