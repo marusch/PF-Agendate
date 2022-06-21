@@ -65,11 +65,11 @@ public class ClienteControlador {
 
         try {
             clienteServicio.crear(clienteDto);
-            attributes.addFlashAttribute("success", "La operacion se ha realizado exitosamente");
+            attributes.addFlashAttribute("success", "El registro se ha realizado con éxito.");
         } catch (IllegalArgumentException e) {
             attributes.addFlashAttribute("cliente", clienteDto);
             attributes.addFlashAttribute("exception", e.getMessage());
-            redirect.setUrl("/seccion-clientes");
+            redirect.setUrl("/clientes/formulario_clientes");
         }
 
         return redirect;

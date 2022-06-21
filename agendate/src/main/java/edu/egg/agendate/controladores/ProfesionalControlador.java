@@ -69,11 +69,11 @@ public class ProfesionalControlador {
 
         try {
             profServicio.crear(profDto);
-            attributes.addFlashAttribute("success", "operación realizada con éxito");
+            attributes.addFlashAttribute("success", "El registro se ha realizado con éxito.");
         } catch (IllegalArgumentException e) {
             attributes.addFlashAttribute("profesional", profDto);
             attributes.addFlashAttribute("exception", e.getMessage());
-            redirect.setUrl("/profesional");
+            redirect.setUrl("/profesional/formulario_profesional");
         }
 
         return redirect;
