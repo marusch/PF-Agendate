@@ -1,83 +1,86 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-    
-<head th:replace="fragments/head :: head"></head>
 
-<body background="/images/fondo.jpg">
-    
-    <header th:replace="fragments/auth-header :: header"></header>
-    
-    <div class="container">
-        <div class="row mt-2">
-            <div class="col">
-                <main>
-                    <div class="container p-5">
-                        <div class="row">
-                            <div class="col-md-4 mx-auto px-0">
-        
-                                <div class="card text-center shadow">
-                                    <div class="card-header" style="background-color: #714B9D">
-                                        <h3 style="color: #DC9F79">Registro</h3>
+    <head th:replace="fragments/head :: head"></head>
+
+    <body background="/images/fondo.jpg">
+
+        <header th:replace="fragments/auth-header :: header"></header>
+
+        <div class="container">
+            <div class="row mt-2">
+                <div class="col">
+                    <main>
+                        <div class="container p-5">
+                            <div class="row">
+                                <div class="col-md-4 mx-auto px-0">
+
+                                    <div class="card text-center shadow">
+                                        <div class="card-header" style="background-color: #714B9D">
+                                            <h3 style="color: #DC9F79">Registro</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form th:action="@{/profesional/__${action}__}" th:object="${profesional}" method="POST" autocomplete="off">
+
+                                                <div class="form-floating mb-3">     
+                                                    <input type="text" th:field="*{nombre}" id="nombre" class="form-control" required/>
+                                                    <label for="nombre">Nombre</label>
+                                                    <div class="invalid-feedback"> </div>
+                                                </div>
+
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" th:field="*{apellido}" id="apellido" class="form-control" required/>
+                                                    <label for="apellido">Apellido</label>
+                                                    <div class="invalid-feedback">  </div>
+                                                </div>
+
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" th:field="*{email}" id="email" class="form-control" required>
+                                                    <label for="correo">Correo Electronico</label>
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+
+                                                <div class="form-floating mb-3">
+                                                    <input type="password" th:field="*{contraseña}" id="contraseña" class="form-control" required>
+                                                    <label for="usuario">Contraseña</label>
+                                                    <div class="invalid-feedback"> </div>
+                                                </div>
+
+                                                <div class="form-floating mb-3">
+                                                    <input type="password" th:field="*{confirmarContraseña}" id ="confirmarContraseña" class="form-control" required>
+                                                    <label for="contraseña">Repita la contraseña</label>
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+
+                                                <div class="form-floating mb-3">
+                                                    <label for="prestacion" class="blockquote-footer" >Elige una opcion : </label>
+                                                    <br>
+                                                    <br>
+                                                    <select elegir="select" class="blockquote-footer">
+                                                        <option prestacion="corte"> Corte</option>
+                                                        <option prestacion="manicura y pedicura"> Manicura y pedicura</option>
+                                                        <option prestacion="masajes"> Masajes</option>
+                                                    </select>
+                                                </div>
+
+
+
+                                                <button th:text="${action == 'crear' ? 'Crear' : 'modificar'}" type="submit"
+                                                        class="btn btn-light" style="background-color: #DC9F79">Registrarme</button>
+                                        </div>
+                                        </form>
                                     </div>
-                                    <div class="card-body">
-                                        <form th:action="@{/profesional/__${action}__}" th:object="${profesional}" method="POST" autocomplete="off">
-                                            
-                                            <div class="form-floating mb-3">     
-                                                <input type="text" th:field="*{nombre}" id="nombre" class="form-control" required/>
-                                                <label for="nombre">Nombre</label>
-                                                <div class="invalid-feedback"> </div>
-                                            </div>
-        
-                                            <div class="form-floating mb-3">
-                                                <input type="text" th:field="*{apellido}" id="apellido" class="form-control" required/>
-                                                <label for="apellido">Apellido</label>
-                                                <div class="invalid-feedback">  </div>
-                                            </div>
-        
-                                            <div class="form-floating mb-3">
-                                                <input type="text" th:field="*{email}" id="email" class="form-control" required>
-                                                <label for="correo">Correo Electronico</label>
-                                                <div class="invalid-feedback"></div>
-                                            </div>
-        
-                                            <div class="form-floating mb-3">
-                                                <input type="password" th:field="*{contraseña}" id="contraseña" class="form-control" required>
-                                                <label for="usuario">Contraseña</label>
-                                                <div class="invalid-feedback"> </div>
-                                            </div>
-        
-                                            <div class="form-floating mb-3">
-                                                <input type="password" th:field="*{confirmarContraseña}" id ="confirmarContraseña" class="form-control" required>
-                                                <label for="contraseña">Repita la contraseña</label>
-                                                <div class="invalid-feedback"></div>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <select elegir="select">
-                                                    <option prestacion="corte"> Elige una opción<option>
-                                                    <option prestacion="corte"> corte<option>
-                                                    <option prestacion="manicura y pedicura"> manicura y pedicura<option>
-                                                    <option prestacion="masajes"> masajes<option>
-                                                </select>
-                                            </div>
-        
-        
-        
-                                            <button th:text="${action == 'crear' ? 'Crear' : 'modificar'}" type="submit"
-                                                    class="btn btn-light" style="background-color: #DC9F79">Registrarme</button>
-                                    </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
-            </main>
+                </main>
             </div>
         </div>
     </div>
-    
+
     <footer th:replace="fragments/footer :: footer"></footer>
     <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
     <script th:src="@{/js/validation.js}"></script>
-    </body>
+</body>
 </html>

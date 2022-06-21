@@ -1,4 +1,3 @@
-
 package edu.egg.agendate.controladores;
 
 import edu.egg.agendate.entidades.Usuario;
@@ -29,8 +28,8 @@ public class AutorizacionControlador {
     public ModelAndView login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout, Principal principal) {
         ModelAndView mav = new ModelAndView("login-form");
 
-        if (error != null) mav.addObject("error", "Invalid email or password");
-        if (logout != null) mav.addObject("logout", "You have successfully exited the platform");
+        if (error != null) mav.addObject("error", "Email o contraseña invalidos.");
+        if (logout != null) mav.addObject("logout", "Has salido con éxito de la plataforma.");
         if (principal != null) mav.setViewName("redirect:/");
 
         return mav;
