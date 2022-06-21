@@ -76,7 +76,7 @@ public class TurnoControlador {
 
         if (turnoServicio.validacionTurno(turno)) {
             redirect.addFlashAttribute("msgError", "Fecha y hora no disponibles");
-            return "redirect:";
+            return "redirect:/{id}/editar";
 
         } else if (bindingResult.hasErrors()) {
             modelo.addAttribute("turno", turno);
