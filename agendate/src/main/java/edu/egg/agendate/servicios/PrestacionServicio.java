@@ -23,7 +23,7 @@ public class PrestacionServicio {
     }
     
     
-    @Transactional(readOnly = true)
+    @Transactional
     public List<Prestacion> mostrarTodos() {
         return prestacionRepo.findAll();
     }

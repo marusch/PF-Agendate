@@ -129,7 +129,8 @@
                   <img src="images/logo-sparkling.png" alt="500" width="500" height="500"/>
                      <p>SPArkling Stetica utiliza AgenDate para la gestión de turnos de sus profesionales,<br>maximizando así la gestión del tiempo para mejorar el flujo de trabajo.</p>
                       
-                     <p><a href="../vista-prestaciones.html">Conoce cómo lo utiliza</a></p>
+                     <p><a th:href="@{/vista-prestaciones}">Conoce cómo lo utiliza</a></p>
+                     
                      <!--- <p>clientes ofrecen una amplia gama de servicios, valiéndose de las funcionalidades que le proporciona la aplicación, simplificando así</p> --->
                   </div>
                   </div>
@@ -202,7 +203,10 @@
          return false;
          });
       </script>
+      
+      
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{/js/validation.js}"></script>
    </body>
 </html>
 
->>>>>>> de6b49f894b50cc395bac2a586112a3409aa5353
