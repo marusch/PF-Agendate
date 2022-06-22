@@ -17,19 +17,30 @@ public class ProfesionalServicio {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+    
+
+    public boolean validarContraseña(Profesional profesional) {
+
+        if (!profesional.getContraseña().equals(profesional.getConfirmarContraseña())) {
+            return true;
+        }
+        return false;
+    }
 
     @Transactional
     public void crear(Profesional profDto) {
         if (profesionalRepo.existsByEmail(profDto.getEmail())) {
-            throw new IllegalArgumentException("El email ingresado ya se encuentra registrado");
+            throw new IllegalArgumentException("Ya existe un profesional registrado con ese email.");
+        }
+
+        if (validarContraseña(profDto)) {
+            throw new IllegalArgumentException("Las contraseñas deben coincidir, vuelva a intentarlo.");
         }
 
         Profesional prof = new Profesional();
 
         //prof.setId(profDto.getId());
         prof.setEmail(profDto.getEmail());
-        //prof.setContraseña(profDto.getContraseña());
-        //prof.setContraseña(enc.encode(profDto.getContraseña()));
         prof.setContraseña(passwordEncoder.encode(profDto.getContraseña()));
         prof.setConfirmarContraseña(profDto.getConfirmarContraseña());
         prof.setRol(Rol.USER);

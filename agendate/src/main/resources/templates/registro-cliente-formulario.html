@@ -12,8 +12,8 @@
     
     
      <header th:replace="fragments/auth-header :: header"></header>
-     
-     <div  th:classappend="'alert-' + (${cliente != null} ? ${cliente} : info)" th:if="${exception != null}"     th:text="${exception}"    class="alert alert-danger alert-dismissible"></div>
+ 
+        <div  th:classappend="'alert-' + (${cliente != null} ? ${cliente} : info)"  th:if="${exception != null}"     th:text="${exception}"    class="alert alert-danger alert-dismissible text-center" ></div>
      
     <div class="container">
         <div class="row mt-2">

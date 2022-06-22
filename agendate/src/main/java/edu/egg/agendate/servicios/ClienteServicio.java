@@ -9,7 +9,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 @Service
 public class ClienteServicio {
 
@@ -18,20 +17,29 @@ public class ClienteServicio {
 
     @Autowired
     private ClienteRepositorio clienteRepositorio;
-    
+
+    public boolean validarContraseña(Cliente cliente) {
+
+        if (!cliente.getContraseña().equals(cliente.getConfirmarContraseña())) {
+            return true;
+        }
+        return false;
+    }
 
     @Transactional
     public void crear(Cliente clienteDto) {
         if (clienteRepositorio.existsByEmail(clienteDto.getEmail())) {
-            throw new IllegalArgumentException("Ya existe un cliente con ese nombre");
+            throw new IllegalArgumentException("Ya existe un cliente registrado con ese email.");
+        }
+
+        if (validarContraseña(clienteDto)) {
+            throw new IllegalArgumentException("Las contraseñas deben coincidir, vuelva a intentarlo.");
         }
 
         Cliente cliente = new Cliente();
 
         cliente.setId(clienteDto.getId());
         cliente.setEmail(clienteDto.getEmail());
-        //cliente.setContraseña(clienteDto.getContraseña());
-        //cliente.setConfirmarContraseña(clienteDto.getConfirmarContraseña());
         cliente.setContraseña(passwordEncoder.encode(clienteDto.getContraseña()));
         cliente.setConfirmarContraseña(clienteDto.getConfirmarContraseña());
         cliente.setRol(Rol.USER);

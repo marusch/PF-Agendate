@@ -16,20 +16,22 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 @Controller
 @RequestMapping("/clientes") //por ejemplo
 public class ClienteControlador {
-    
+
     @Autowired
     private ClienteServicio clienteServicio;
+    
 
     @GetMapping("/mostrar-creacion-clientes")
     public ModelAndView mostrarClientes(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("tabla-de-clientes");
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
 
-        if (inputFlashMap != null) mav.addObject("success", inputFlashMap.get("success"));
+        if (inputFlashMap != null) {
+            mav.addObject("success", inputFlashMap.get("success"));
+        }
 
         mav.addObject("persons", clienteServicio.obtenerTodos());
         return mav;
@@ -69,6 +71,7 @@ public class ClienteControlador {
         } catch (IllegalArgumentException e) {
             attributes.addFlashAttribute("cliente", clienteDto);
             attributes.addFlashAttribute("exception", e.getMessage());
+            
             redirect.setUrl("/clientes/formulario_clientes");
         }
 

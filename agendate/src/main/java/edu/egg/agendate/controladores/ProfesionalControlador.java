@@ -15,22 +15,23 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.servlet.view.RedirectView;
 
-
 @Controller
 @RequestMapping("/profesional")
 public class ProfesionalControlador {
-    
+
     @Autowired
     private ProfesionalServicio profServicio;
+
     
-    
-   //tabla para mostrar todos
+    //tabla para mostrar todos
     @GetMapping
     public ModelAndView mostrarProfesionales(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("");
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
 
-        if (inputFlashMap != null) mav.addObject("success", inputFlashMap.get("success"));
+        if (inputFlashMap != null) {
+            mav.addObject("success", inputFlashMap.get("success"));
+        }
 
         mav.addObject("profesionales", profServicio.mostrarTodos());
         return mav;
@@ -95,5 +96,5 @@ public class ProfesionalControlador {
         profServicio.borrarPorId(id);
         return redirect;
     }
-    
+
 }
