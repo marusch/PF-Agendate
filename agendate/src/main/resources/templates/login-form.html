@@ -5,7 +5,7 @@
 
     <body background="/images/fondo.jpg">
 
-        <header th:replace="fragments/auth-header :: header"></header>
+       
 
         <div  th:classappend="'alert-' + (${success != null} ? ${success} : info)" th:if="${success != null}"     th:text="${success}"    class="alert alert-success alert-dismissible"></div>
 
@@ -51,9 +51,9 @@
                 </div>
             </div>
         </main>
-
-        <footer th:replace="fragments/footer :: footer"></footer>
-
+      
+        
+        
         <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
         <script th:src="@{/js/validation.js}"></script>
 

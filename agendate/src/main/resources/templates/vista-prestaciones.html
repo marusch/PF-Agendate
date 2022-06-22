@@ -10,194 +10,194 @@
 
     <head th:replace="fragments/head :: head"></head>
 
-    <body background="/static/images/fondo.jpg">
+    <body background="/images/fondo.jpg">
+        <div class="container">
+            <header th:replace="fragments/auth-header :: header"></header>
+        
+                <div class="conteiner-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="carousel slide carousel-fade" id="mi-carousel" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img  th:src="@{/images/banner-sparkling.jpg}" style="width: 100%; height: auto;">
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="7000">
 
-        <header th:replace="fragments/auth-header :: header"></header>
-        <div class="conteiner-flud">
-            <div class="row">
-                <div class="col-12">
-                    <div class="carousel slide carousel-fade" id="mi-carousel" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img  th:src="@{/images/banner-sparkling.jpg}" style="width: 100%; height: auto;">
+                                        <img th:src="@{/images/banner-contacto.jpg}" style="width: 100%; height: auto;">
+                                    </div>
+                                </div>
+
+                                <!-- Controles -->
+                                <button 
+                                    class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#mi-carousel"
+                                    data-bs-slide="prev"
+                                    >
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Anterior</span>
+                                </button>
+
+                                <button 
+                                    class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#mi-carousel"
+                                    data-bs-slide="next"
+                                    >
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Siguiente</span>
+                                </button>
+
+                                <!-- Indicadores -->
+                                <div class="carousel-indicators">
+                                    <button 
+                                        type="button"
+                                        class="active"
+                                        data-bs-target="#mi-carousel"
+                                        data-bs-slide-to="0"
+                                        aria-label="Slide 1"
+                                        ></button>
+                                    <button 
+                                        type="button"
+                                        class=""
+                                        data-bs-target="#mi-carousel"
+                                        data-bs-slide-to="1"
+                                        aria-label="Slide 2"
+                                        ></button>
+                                    <button 
+                                        type="button"
+                                        class=""
+                                        data-bs-target="#mi-carousel"
+                                        data-bs-slide-to="2"
+                                        aria-label="Slide 3"
+                                        ></button>
+                                </div>
                             </div>
-                            <div class="carousel-item" data-bs-interval="7000">
-
-                                <img th:src="@{/images/banner-contacto.jpg}" style="width: 100%; height: auto;">
-                            </div>
-                        </div>
-
-                        <!-- Controles -->
-                        <button 
-                            class="carousel-control-prev"
-                            type="button"
-                            data-bs-target="#mi-carousel"
-                            data-bs-slide="prev"
-                            >
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
-
-                        <button 
-                            class="carousel-control-next"
-                            type="button"
-                            data-bs-target="#mi-carousel"
-                            data-bs-slide="next"
-                            >
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Siguiente</span>
-                        </button>
-
-                        <!-- Indicadores -->
-                        <div class="carousel-indicators">
-                            <button 
-                                type="button"
-                                class="active"
-                                data-bs-target="#mi-carousel"
-                                data-bs-slide-to="0"
-                                aria-label="Slide 1"
-                                ></button>
-                            <button 
-                                type="button"
-                                class=""
-                                data-bs-target="#mi-carousel"
-                                data-bs-slide-to="1"
-                                aria-label="Slide 2"
-                                ></button>
-                            <button 
-                                type="button"
-                                class=""
-                                data-bs-target="#mi-carousel"
-                                data-bs-slide-to="2"
-                                aria-label="Slide 3"
-                                ></button>
                         </div>
                     </div>
-                </div>
-            </div>
 
+                </div>
+
+                <div class="conteiner-fluid" style=" align-content: center">
+                    <h3 style=" align-content: center">Prestaciones</h3>
+                    <div class="card-group">
+
+                        <div class="row" style="margin:0 auto;">
+                            <div class="col">
+                                <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <img th:src="@{/images/recortadas/faciales.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
+                                        <a href="/registro-turnos">
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body" style="width: 18rem;" >
+                                        <h5 class="card-title">Tratamientos corporales</h5>
+                                        <p class="card-text">Dale a tu piel el cuidado que se merece.</p>
+                                        <p class="card-text">$1500</p>
+                                        <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                                    </div>
+                                </div>
+                            </div>     
+
+                            <div class=" col">
+                                <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <img th:src="@{/images/recortadas/estilista.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
+                                        <a href="/registro-turnos">
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                        </a>
+                                        <div class="card-body" style="width: 18rem; background-color: #E5E5E5">
+                                            <h5 class="card-title">Hairdressing</h5>
+                                            <p class="card-text">Potencia tu estilo unico.</p>
+                                            <p class="card-text">$2000</p>
+                                            <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                </col>
+                            </div>
+
+                            <div class="col">
+                                <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <img th:src="@{images/recortadas/masajes.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
+                                        <a href="/registro-turnos">
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                        </a>
+                                        <div class="card-body" style="width: 18rem;">
+                                            <h5 class="card-title">Spa y relax</h5>
+                                            <p class="card-text">Dale a tu cuerpo un descanso de la rutina.</p>
+                                            <p class="card-text">$1200</p>
+                                            <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="row" style="margin:0 auto;">
+                            <div class="col">
+
+                                <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <img th:src="@{images/recortadas/unias.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
+                                        <a href="/registro-turnos">
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body" style="width: 18rem;">
+                                        <h5 class="card-title">Manicura</h5>
+                                        <p class="card-text">Nail art, esculpidas, kapping...</p>
+                                        <p class="card-text">$1200</p>
+                                        <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <img th:src="@{images/pies1.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
+                                        <a href="/registro-turnos">
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body" style="width: 18rem;">
+                                        <h5 class="card-title">Pedicura</h5>
+                                        <p class="card-text">Dale un mimo a tus pies.</p>
+                                        <p class="card-text">$1200</p>
+                                        <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="card" style="width: 18rem; background-color: #E5E5E5">
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <img th:src="@{images/bronceado.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
+                                        <a href="/registro-turnos">
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                        </a>
+                                        <div class="card-body" style="width: 18rem;">
+                                            <h5 class="card-title">Cabina solar</h5>
+                                            <p class="card-text">Piel dorada para el verano.</p>
+                                            <p class="card-text">$1200</p>
+                                            <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+   
+            <footer th:replace="fragments/footer :: footer"></footer>
         </div>
+            <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+            <script th:src="@{/js/validation.js}"></script>
 
-        <div class="conteiner-fluid" style=" align-content: center">
-            <h3 style=" align-content: center">Prestaciones</h3>
-            <div class="card-group">
-
-                <div class="row" style="margin:0 auto;">
-                    <div class="col">
-                        <div class="card" style="width: 18rem; background-color: #E5E5E5">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img th:src="@{/images/recortadas/faciales.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
-                                <a href="/registro-turnos">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                            </div>
-                            <div class="card-body" style="width: 18rem;" >
-                                <h5 class="card-title">Tratamientos corporales</h5>
-                                <p class="card-text">Dale a tu piel el cuidado que se merece.</p>
-                                <p class="card-text">$1500</p>
-                                <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
-                            </div>
-                        </div>
-                    </div>     
-
-                    <div class=" col">
-                        <div class="card" style="width: 18rem; background-color: #E5E5E5">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img th:src="@{/images/recortadas/estilista.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
-                                <a href="/registro-turnos">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                                <div class="card-body" style="width: 18rem; background-color: #E5E5E5">
-                                    <h5 class="card-title">Hairdressing</h5>
-                                    <p class="card-text">Potencia tu estilo unico.</p>
-                                    <p class="card-text">$2000</p>
-                                    <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
-                                </div>
-                            </div>
-                        </div>
-                        </col>
-                    </div>
-
-                    <div class="col">
-                        <div class="card" style="width: 18rem; background-color: #E5E5E5">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img th:src="@{images/recortadas/masajes.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
-                                <a href="/registro-turnos">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                                <div class="card-body" style="width: 18rem;">
-                                    <h5 class="card-title">Spa y relax</h5>
-                                    <p class="card-text">Dale a tu cuerpo un descanso de la rutina.</p>
-                                    <p class="card-text">$1200</p>
-                                    <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-                <div class="row" style="margin:0 auto;">
-                    <div class="col">
-
-                        <div class="card" style="width: 18rem; background-color: #E5E5E5">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img th:src="@{images/recortadas/unias.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
-                                <a href="/registro-turnos">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                            </div>
-                            <div class="card-body" style="width: 18rem;">
-                                <h5 class="card-title">Manicura</h5>
-                                <p class="card-text">Nail art, esculpidas, kapping...</p>
-                                <p class="card-text">$1200</p>
-                                <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card" style="width: 18rem; background-color: #E5E5E5">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img th:src="@{images/pies1.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
-                                <a href="/registro-turnos">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                            </div>
-                            <div class="card-body" style="width: 18rem;">
-                                <h5 class="card-title">Pedicura</h5>
-                                <p class="card-text">Dale un mimo a tus pies.</p>
-                                <p class="card-text">$1200</p>
-                                <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card" style="width: 18rem; background-color: #E5E5E5">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img th:src="@{images/bronceado.jpg}" class="img-fluid" style="width: 100%; height: auto;"/>
-                                <a href="/registro-turnos">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                                <div class="card-body" style="width: 18rem;">
-                                    <h5 class="card-title">Cabina solar</h5>
-                                    <p class="card-text">Piel dorada para el verano.</p>
-                                    <p class="card-text">$1200</p>
-                                    <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-    <footer th:replace="fragments/footer :: footer"></footer>
-
-    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-    <script th:src="@{/js/validation.js}"></script>
-
-</body>
+    </body>
 </html>
