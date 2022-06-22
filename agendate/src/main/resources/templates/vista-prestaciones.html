@@ -13,7 +13,12 @@
     <body background="/images/fondo.jpg">
         <div class="container">
             <header th:replace="fragments/auth-header :: header"></header>
-        
+            <div class="container">
+                <div th:if="${msgExito != null}"
+                     class="alert alert-success alert-dismissible">
+                    [[${msgExito}]]
+                    <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+                </div>
                 <div class="conteiner-fluid">
                     <div class="row">
                         <div class="col-12">
@@ -193,9 +198,9 @@
 
                     </div>
                 </div>
-   
-            <footer th:replace="fragments/footer :: footer"></footer>
-        </div>
+
+                <footer th:replace="fragments/footer :: footer"></footer>
+            </div>
             <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
             <script th:src="@{/js/validation.js}"></script>
 

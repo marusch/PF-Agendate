@@ -11,97 +11,82 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" style="color: #F6CEEC"  th:href="@{/index}"><strong>Inicio</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" style="color: #F6CEEC"  th:href="@{/vista-prestaciones}"><strong>Inicio</strong></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
         <main>
-            <div class="container">
-                <div th:if="${msgExito != null}"
-                     class="alert alert-success alert-dismissible">
-                    [[${msgExito}]]
-                    <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
-                </div>
+            <br>
+            <h1 style="text-align:center" >Lista de turnos</h1>
 
-                <br>
-                <h1 style="text-align:center" >Lista de turnos</h1>
+            <br>
+            <table class="table table-hover "  style="text-align:center" >
+                <thead>
+                    <tr>
 
-                <div class="text-center my-3">
-                    <a href="/registro-turnos" class="btn btn-outline-info" style= "background-color: #CEF6F5" ><i class="fas fa-user-plus"></i>&nbsp;Añadir turno</a>
-                </div>
-
-                <br>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Telefono</th>
-                            <th>Fecha Turno</th>
-                            <th>Hora Turno</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    <div  sec:authorize="isAuthenticated()">
-                        <h3>Hola,  <span sec:authentication="name"></span></h3> 
-                    </div>
-
-                    <tr th:each="turno : ${turnos}">
-                        <td th:text="${turno.nombreUsuario}"></td>
-                        <td th:text="${turno.apellidoUsuario}"></td>
-                        <td th:text="${turno.emailUsuario}"></td>
-                        <td th:text="${turno.telefonoUsuario}"></td>
-                        <td th:text="${#temporals.format(turno.fecha,'yyyy-MM-dd')}"></td>
-                        <td th:text="${turno.hora}"></td>
-
-                        <td><a th:href="@{/{id}/editar/(id=${turno.id})}" class="btn btn-dark"><i class="fas fa-edit"></i>&nbsp;Editar</a>
-
-
-
-                            <a href="#" onclick="eliminarTurno(this)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</a>
-
-                            <form th:action="@{/{id}/eliminar/(id=${turno.id})}"
-                                  method="post"></form></td>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Telefono</th>
+                        <th>Fecha Turno</th>
+                        <th>Hora Turno</th>
                     </tr>
+                </thead>
+                <tbody>
 
-                    </tbody>
-                </table>
-            </div>
-
-
-
-
-            <script>
-                function eliminarTurno(elemento){
-                var ok = confirm('¿Estas seguro de eliminar al turno?');
-
-                if(ok){
-                elemento.nextElementSibling.submit();
-                }
-                }
-            </script>
-
-            <br>
-            <br>
-        </main>
-        
-        
-        <footer class="py-5" style="background-color: #714B9D">
-            <div class="container px-4 px-lg-5"><p class="m-0 text-center" style="color: #DC9F79">Copyright &copy; AgenDate 2022</p>
-                <div class="container justify-content-center">
-                    <a class="navbar-brand" href="paginadeagendate.com">
-                        <img src="/images/logo_reloj.png" alt="70" width="70" height="70" class="mx-auto d-block">
-                    </a>
+                <div  sec:authorize="isAuthenticated()">
+                    <h3>Hola,  <span sec:authentication="name"></span></h3> 
                 </div>
-            </div>
-        </footer>
 
-        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-        <script th:src="@{/js/validation.js}"></script>
-    </body>
+                <tr th:each="turno : ${turnos}">
+                    <td th:text="${turno.nombreUsuario}"></td>
+                    <td th:text="${turno.apellidoUsuario}"></td>
+                    <td th:text="${turno.emailUsuario}"></td>
+                    <td th:text="${turno.telefonoUsuario}"></td>
+                    <td th:text="${#temporals.format(turno.fecha,'yyyy-MM-dd')}"></td>
+                    <td th:text="${turno.hora}"></td>
+
+                    <td><a th:href="@{/{id}/editar/(id=${turno.id})}" class="btn btn-dark"><i class="fas fa-edit"></i>&nbsp;Editar</a>
+
+                        <a href="#" onclick="eliminarTurno(this)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Eliminar</a>
+
+                        <form th:action="@{/{id}/eliminar/(id=${turno.id})}"
+                              method="post"></form></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <script>
+            function eliminarTurno(elemento){
+            var ok = confirm('¿Estas seguro de eliminar al turno?');
+
+            if(ok){
+            elemento.nextElementSibling.submit();
+            }
+            }
+        </script>
+
+        <br>
+        <br>
+    </main>
+
+
+    <footer class="py-5" style="background-color: #714B9D">
+        <div class="container px-4 px-lg-5"><p class="m-0 text-center" style="color: #DC9F79">Copyright &copy; AgenDate 2022</p>
+            <div class="container justify-content-center">
+                <a class="navbar-brand" href="paginadeagendate.com">
+                    <img src="/images/logo_reloj.png" alt="70" width="70" height="70" class="mx-auto d-block">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/validation.js}"></script>
+</body>
 </html>

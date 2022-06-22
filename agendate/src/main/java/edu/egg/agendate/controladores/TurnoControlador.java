@@ -47,7 +47,7 @@ public class TurnoControlador {
             return "redirect:registro-turnos";
 
         } else if (bindingResult.hasErrors()) {
-            
+
             modelo.addAttribute("turno", turno);
             return "registro-turnos";
 
@@ -56,7 +56,7 @@ public class TurnoControlador {
             turnoServicio.guardarTurno(turno, session);
             turnoServicio.enviarMensaje(turno, session);
             redirect.addFlashAttribute("msgExito", "El turno ha sido agregado con exito.");
-            return "redirect:lista-turnos";
+            return "redirect:vista-prestaciones";
         }
     }
 
