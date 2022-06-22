@@ -32,6 +32,7 @@ public class Turno {
     private Long telefonoUsuario;
 
     @Column
+    @NotNull(message = "Debe ingresar la fecha de turno")
     @DateTimeFormat(pattern="yyyy-MM-dd") 
     @Future
     private LocalDate fecha;
