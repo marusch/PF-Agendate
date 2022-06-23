@@ -36,25 +36,34 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider());
     }
 
-     String[] resources = new String[]{
-            "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**"
-            };
-    
+    String[] resources = new String[]{
+        "/include/**", "/css/**", "/icons/**", "/img/**", "/js/**", "/layer/**"
+    };
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
                 resources).permitAll()
-                .antMatchers("/","/index","vista-prestaciones").permitAll()
-                .and().formLogin()                                                            
-                        .loginPage("/login") 
-                        .loginProcessingUrl("/logincheck")
-                        .usernameParameter("email") 
-                        .passwordParameter("contraseña") 
-                        .defaultSuccessUrl("/vista-prestaciones").permitAll()
-                 .and().logout() 
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login?logout").permitAll()
+                .antMatchers("/", "/index", "vista-prestaciones").permitAll()
+                .antMatchers("/lista-turnos", "/profesional/formulario_profesional").access("hasRole('ADMIN')")
+                .antMatchers("/registro-turnos").access("hasRole('ADMIN') or hasRole('USER')")
+                .and().formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/logincheck")
+                .usernameParameter("email")
+                .passwordParameter("contraseña")
+                .defaultSuccessUrl("/vista-prestaciones").permitAll()
+                .and()
+                .rememberMe().key("uniqueAndSecret")
+                .userDetailsService(us)
+                .tokenValiditySeconds(5184000) //valor de la cookie en segundo ej, 60 => min
+                .rememberMeParameter("recordarme")
+                .and()
+                .logout()
+                .deleteCookies("JSESSIONID")
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout").permitAll()
                 .and().csrf().disable();
-                
+
     }
 }

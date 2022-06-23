@@ -18,8 +18,14 @@
                 <a class="navbar-brand" style="color: #DC9F79">
                     <img src="/images/logo-sparkling.png" alt="70" width="70" height="45" class="mx-auto d-block">
                 </a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item" sec:authorize="hasRole('ADMIN')"><a class="nav-link" style="color: #F6CEEC"  th:href="@{/lista-turnos}"><strong>Lista de turnos para profesionales</strong></a></li>
+                    </ul>
+                    
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item" sec:authorize="!isAuthenticated()"><a class="nav-link" style="color: #F6CEEC"  th:href="@{/clientes/formulario_clientes}"><strong>Registrarme</strong></a></li>
                         <li class="nav-item" sec:authorize="!isAuthenticated()"><a class="nav-link" style="color: #F6CEEC"  th:href="@{/login}"><strong>Iniciar Sesión</strong></a></li>
@@ -143,7 +149,7 @@
                                         </a>
                                         <div class="card-body" style="width: 18rem; background-color: #E5E5E5">
                                             <h5 class="card-title">Hairdressing</h5>
-                                            <p class="card-text">Potencia tu estilo unico.</p>
+                                            <p class="card-text">Potencia tu estilo unico e inigualable.</p>
                                             <p class="card-text">$2000</p>
                                             <a href="/registro-turnos" class="btn btn-light" style="background-color: #FCD0CF">Solicitar turno</a>
                                         </div>
@@ -226,7 +232,7 @@
 
                     </div>
                 </div>
-
+                <br>
                 <footer th:replace="fragments/footer :: footer"></footer>
             </div>
             <script th:src="@{/js/bootstrap.bundle.min.js}"></script>

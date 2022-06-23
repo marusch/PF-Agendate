@@ -43,7 +43,7 @@ public class ProfesionalServicio {
         prof.setEmail(profDto.getEmail());
         prof.setContraseña(passwordEncoder.encode(profDto.getContraseña()));
         prof.setConfirmarContraseña(profDto.getConfirmarContraseña());
-        prof.setRol(Rol.USER);
+        prof.setRol(Rol.ADMIN);
         prof.setNombre(profDto.getNombre());
         prof.setApellido(profDto.getApellido());
         prof.setPrestacion(profDto.getPrestacion());

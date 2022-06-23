@@ -34,39 +34,4 @@ public class AutorizacionControlador {
 
         return mav;
     }
-    
-    /*
-    @GetMapping("/sign-up")
-    public ModelAndView signup(HttpServletRequest request, Principal principal) {
-        ModelAndView mav = new ModelAndView("sign-up-form");
-        Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
-
-        if (principal != null) mav.setViewName("redirect:/");
-
-        if (inputFlashMap != null) {
-            mav.addObject("exception", inputFlashMap.get("exception"));
-            mav.addObject("user", inputFlashMap.get("user"));
-        } else {
-            mav.addObject("user", new Usuario());
-        }
-
-        return mav;
-    }
-    
-    
-    @PostMapping("/")
-    public RedirectView signup(Usuario userDto, RedirectAttributes attributes) {
-        RedirectView redirect = new RedirectView("/");
-
-        try {
-            usuarioServicio.create(userDto);
-        } catch (IllegalArgumentException e ) {
-            attributes.addFlashAttribute("usuario", userDto);
-            attributes.addFlashAttribute("exception", e.getMessage());
-            redirect.setUrl("/auth/sign-up");
-        }
-
-        return redirect;
-    }
-    */
 }

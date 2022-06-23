@@ -37,10 +37,10 @@
                 </thead>
                 <tbody>
 
-                <div  sec:authorize="isAuthenticated()">
-                    <h3>Hola,  <span sec:authentication="name"></span></h3> 
+                <div  style="text-align:center" sec:authorize="isAuthenticated()">
+                    <h5>Buenas,  <span sec:authentication="name"></span></h5> 
                 </div>
-
+                <br>
                 <tr th:each="turno : ${turnos}">
                     <td th:text="${turno.nombreUsuario}"></td>
                     <td th:text="${turno.apellidoUsuario}"></td>

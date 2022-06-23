@@ -12,6 +12,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" style="color: #F6CEEC"  th:href="@{/clientes/formulario_clientes}"><strong>Registrarme</strong></a></li>
                         <li class="nav-item"><a class="nav-link" style="color: #F6CEEC"  th:href="@{/vista-prestaciones}"><strong>Inicio</strong></a></li>
                     </ul>
                 </div>
@@ -46,8 +47,8 @@
                                         <div class="invalid-feedback text-start">Este campo es obligatorio.</div>
                                     </div>
 
-                                    <div class="row">
-                                        <input id="remember_me" name="remember-me" type="checkbox"/>
+                                    <div class="form-check">
+                                        <input id="recordarme" name="recordarme" type="checkbox"/>
                                         <label for="remember_me" class="text-white">Recordar contraseña</label>
                                     </div>
 
