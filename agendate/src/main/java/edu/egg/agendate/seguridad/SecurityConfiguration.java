@@ -43,23 +43,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
-               // "/registro-prof-form**",
-                //"/js/**",
-                //"/css/**",
-                //"/img/**").permitAll()
                 resources).permitAll()
-                .antMatchers("/","/index").permitAll()
-                .antMatchers("registro-turnos","/registration").permitAll()
+                .antMatchers("/","/index","vista-prestaciones").permitAll()
                 .and().formLogin()                                                            
                         .loginPage("/login") 
                         .loginProcessingUrl("/logincheck")
                         .usernameParameter("email") 
                         .passwordParameter("contraseña") 
-                        .defaultSuccessUrl("/index", true).permitAll()
+                        .defaultSuccessUrl("/vista-prestaciones").permitAll()
+                 .and().logout() 
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout").permitAll()
                 .and().csrf().disable();
-                //.antMatchers("/inicio/login").permitAll();
-                //.anyRequest().authenticated()
-                //.antMatchers("/profesional*","/").access("hasAuthority('ROLE_USER')");
-                //.antMatchers("/").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
+                
     }
 }

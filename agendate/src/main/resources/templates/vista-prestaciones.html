@@ -11,8 +11,36 @@
     <head th:replace="fragments/head :: head"></head>
 
     <body background="/images/fondo.jpg">
+
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #714B9D">
+            <div class="container px-5">
+                <a class="navbar-brand" style="color: #DC9F79">
+                    <img src="/images/logo-sparkling.png" alt="70" width="70" height="45" class="mx-auto d-block">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item" sec:authorize="!isAuthenticated()"><a class="nav-link" style="color: #F6CEEC"  th:href="@{/clientes/formulario_clientes}"><strong>Registrarme</strong></a></li>
+                        <li class="nav-item" sec:authorize="!isAuthenticated()"><a class="nav-link" style="color: #F6CEEC"  th:href="@{/login}"><strong>Iniciar Sesión</strong></a></li>
+                        <li class="nav-item" sec:authorize="isAuthenticated()"><a class="nav-link" style="color: #F6CEEC"  th:href="@{/logout}"><strong>Cerrar Sesión</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+
         <div class="container">
-            <header th:replace="fragments/auth-header :: header"></header>
+
+
+
+
+
+
+
+
             <div class="container">
                 <div th:if="${msgExito != null}"
                      class="alert alert-success alert-dismissible">
