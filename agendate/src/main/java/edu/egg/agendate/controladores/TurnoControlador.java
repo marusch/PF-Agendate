@@ -43,7 +43,7 @@ public class TurnoControlador {
 
         if (turnoServicio.validacionTurno(turno)) {
 
-            redirect.addFlashAttribute("msgError", "Fecha y hora no disponibles");
+            redirect.addFlashAttribute("msgError", "Fecha y hora no disponibles.");
             return "redirect:registro-turnos";
 
         } else if (bindingResult.hasErrors()) {
@@ -55,7 +55,7 @@ public class TurnoControlador {
 
             turnoServicio.guardarTurno(turno, session);
             turnoServicio.enviarMensaje(turno, session);
-            redirect.addFlashAttribute("msgExito", "El turno ha sido agregado con exito.");
+            redirect.addFlashAttribute("msgExito", "Su turno ha sido registrado con exito.");
             return "redirect:vista-prestaciones";
         }
     }
@@ -75,7 +75,7 @@ public class TurnoControlador {
         Turno turnoExistente = turnoServicio.obtenerTurnoPorId(id);
 
         if (turnoServicio.validacionTurno(turno)) {
-            redirect.addFlashAttribute("msgError", "Fecha y hora no disponibles");
+            redirect.addFlashAttribute("msgError", "Fecha y hora no disponibles.");
             return "redirect:/{id}/editar";
 
         } else if (bindingResult.hasErrors()) {
@@ -91,7 +91,7 @@ public class TurnoControlador {
             turnoExistente.getTelefonoUsuario();
 
             turnoServicio.actualizarTurno(turnoExistente);
-            redirect.addFlashAttribute("msgExito", "El turno ha sido actualizado correctamente");
+            redirect.addFlashAttribute("msgExito", "El turno ha sido actualizado correctamente.");
             return "redirect:/lista-turnos";
         }
     }
@@ -100,7 +100,7 @@ public class TurnoControlador {
     public String eliminarTurno(@PathVariable Long id, RedirectAttributes redirect) {
         turnoServicio.EliminarTurno(id);
 
-        redirect.addFlashAttribute("msgExito", "El turno ha sido eliminado correctamente");
+        redirect.addFlashAttribute("msgExito", "El turno ha sido eliminado correctamente.");
         return "redirect:/lista-turnos";
     }
 
