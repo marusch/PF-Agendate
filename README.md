@@ -1,5 +1,5 @@
 # PF-Agendate
-# Desarrollo del proyecto final del curso de Desarrollo Web Full Stack brindado por Egg cooperation.
+# Desarrollo del proyecto final del curso de "Programación Web Full Stack" brindado por Egg cooperation.
 
 📚 Fue desarrollado con Java-Spring-Boot, Base de datos MySql.
 
